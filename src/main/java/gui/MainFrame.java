@@ -4,6 +4,9 @@
  */
 package gui;
 
+import utils.ComponentUtils;
+import utils.UColors;
+
 /**
  *
  * @author narwa
@@ -15,7 +18,12 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        setColors();
 //        setUndecorated(true);
+    }
+    
+    private void setColors() {
+        ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), INPUT_PANE, MAP_PANEL, CITYINFO_SCROLLPANE);
     }
 
     /**
@@ -27,18 +35,126 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MAP_PANEL = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        CITYINFO_SCROLLPANE = new javax.swing.JScrollPane();
         INPUT_PANE = new javax.swing.JPanel();
+        l_title = new javax.swing.JLabel();
+        l_origin = new javax.swing.JLabel();
+        f_origin = new javax.swing.JTextField();
+        b_selectOrigin = new javax.swing.JButton();
+        l_destination = new javax.swing.JLabel();
+        f_origin1 = new javax.swing.JTextField();
+        b_selectDestination = new javax.swing.JButton();
+        l_tipePengiriman = new javax.swing.JLabel();
+        i_tipePengiriman = new javax.swing.JComboBox<>();
+        b_reset = new javax.swing.JButton();
+        b_find = new javax.swing.JButton();
+        MAP_PANEL = new javax.swing.JPanel();
+        PETA_UTAMA = new javax.swing.JLabel();
+        CITYINFO_SCROLLPANE = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kurir Optimizer: Shortest Path Finder");
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/peta_jawa_tengah.jpg"))); // NOI18N
+        l_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        l_title.setText("Shortest Path Finder");
+
+        l_origin.setText("Origin");
+
+        f_origin.setEditable(false);
+        f_origin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f_originActionPerformed(evt);
+            }
+        });
+
+        b_selectOrigin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        b_selectOrigin.setText("Select Origin");
+        b_selectOrigin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_selectOriginActionPerformed(evt);
+            }
+        });
+
+        l_destination.setText("Destination");
+
+        f_origin1.setEditable(false);
+
+        b_selectDestination.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        b_selectDestination.setText("Select Destination");
+        b_selectDestination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_selectDestinationActionPerformed(evt);
+            }
+        });
+
+        l_tipePengiriman.setText("Tipe Pengiriman");
+
+        i_tipePengiriman.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Reguler", "Express", "Ekonomi" }));
+
+        b_reset.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b_reset.setText("Reset");
+
+        b_find.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b_find.setText("Find");
+
+        javax.swing.GroupLayout INPUT_PANELayout = new javax.swing.GroupLayout(INPUT_PANE);
+        INPUT_PANE.setLayout(INPUT_PANELayout);
+        INPUT_PANELayout.setHorizontalGroup(
+            INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(INPUT_PANELayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(INPUT_PANELayout.createSequentialGroup()
+                        .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                        .addComponent(b_find, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(l_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_PANELayout.createSequentialGroup()
+                        .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(i_tipePengiriman, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(f_origin1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_origin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(l_destination, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(f_origin, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_tipePengiriman, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(b_selectOrigin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b_selectDestination, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        INPUT_PANELayout.setVerticalGroup(
+            INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(INPUT_PANELayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(l_title, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_origin)
+                .addGap(0, 0, 0)
+                .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_origin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_selectOrigin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_destination)
+                .addGap(0, 0, 0)
+                .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_origin1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_selectDestination))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_tipePengiriman)
+                .addGap(0, 0, 0)
+                .addComponent(i_tipePengiriman, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_find, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        PETA_UTAMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/peta_jawa_tengah.jpg"))); // NOI18N
 
         javax.swing.GroupLayout MAP_PANELLayout = new javax.swing.GroupLayout(MAP_PANEL);
         MAP_PANEL.setLayout(MAP_PANELLayout);
@@ -46,26 +162,15 @@ public class MainFrame extends javax.swing.JFrame {
             MAP_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAP_PANELLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(PETA_UTAMA)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MAP_PANELLayout.setVerticalGroup(
             MAP_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MAP_PANELLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(PETA_UTAMA)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout INPUT_PANELayout = new javax.swing.GroupLayout(INPUT_PANE);
-        INPUT_PANE.setLayout(INPUT_PANELayout);
-        INPUT_PANELayout.setHorizontalGroup(
-            INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
-        );
-        INPUT_PANELayout.setVerticalGroup(
-            INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,12 +195,24 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(INPUT_PANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CITYINFO_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
-        setSize(new java.awt.Dimension(1380, 803));
+        setSize(new java.awt.Dimension(1380, 775));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void b_selectOriginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_selectOriginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_selectOriginActionPerformed
+
+    private void b_selectDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_selectDestinationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_selectDestinationActionPerformed
+
+    private void f_originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_originActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_f_originActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,6 +253,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane CITYINFO_SCROLLPANE;
     private javax.swing.JPanel INPUT_PANE;
     private javax.swing.JPanel MAP_PANEL;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel PETA_UTAMA;
+    private javax.swing.JButton b_find;
+    private javax.swing.JButton b_reset;
+    private javax.swing.JButton b_selectDestination;
+    private javax.swing.JButton b_selectOrigin;
+    private javax.swing.JTextField f_origin;
+    private javax.swing.JTextField f_origin1;
+    private javax.swing.JComboBox<String> i_tipePengiriman;
+    private javax.swing.JLabel l_destination;
+    private javax.swing.JLabel l_origin;
+    private javax.swing.JLabel l_tipePengiriman;
+    private javax.swing.JLabel l_title;
     // End of variables declaration//GEN-END:variables
 }
