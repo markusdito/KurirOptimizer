@@ -55,7 +55,6 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Kurir Optimizer: Shortest Path Finder");
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
 
         l_title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -93,12 +92,27 @@ public class MainFrame extends javax.swing.JFrame {
         l_tipePengiriman.setText("Tipe Pengiriman");
 
         i_tipePengiriman.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Reguler", "Express", "Ekonomi" }));
+        i_tipePengiriman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_tipePengirimanActionPerformed(evt);
+            }
+        });
 
         b_reset.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b_reset.setText("Reset");
+        b_reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_resetActionPerformed(evt);
+            }
+        });
 
         b_find.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b_find.setText("Find");
+        b_find.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_findActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout INPUT_PANELayout = new javax.swing.GroupLayout(INPUT_PANE);
         INPUT_PANE.setLayout(INPUT_PANELayout);
@@ -213,6 +227,18 @@ public class MainFrame extends javax.swing.JFrame {
     private void f_originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_originActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_f_originActionPerformed
+
+    private void b_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_resetActionPerformed
+
+    private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_findActionPerformed
+
+    private void i_tipePengirimanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_tipePengirimanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i_tipePengirimanActionPerformed
 
     /**
      * @param args the command line arguments
