@@ -1,25 +1,23 @@
-# Konsmail (Mailing App)
+# Kurir Optimizer - Jawa Tengah (Dijkstra's Algorithm)
 
-## What is Konsmail?
+## What is Kurir Optimizer?
 
-This is a simple mailing app that allows you to send emails to multiple recipients at once. It is built using Java.
-The app is built for the purpose of final project of the course "Object-Oriented Programming 2". The database structure
-is stored locally using an Oracle database.
+This project is a simple application that implements Dijkstra's Algorithm to find the shortest path between two cities 
+in Jawa Tengah, Indonesia. The application is built using Java and Swing. The application will find the shortest path
+between two cities and display the path on the map and list. There are 29 cities in total as the vertices.
 
 ## Project Structure
 
 ```
 src
 └── main                    
-    ├── database            # Contains database files
     ├── java
-    │   ├── archives        # Contains unused files
-    │   ├── backend         # Contains backend files
-    │   ├── gui             # Contains GUI files
-    │   ├── models          # Contains models/objects used in the app
-    │   ├── utils           # Contains utility files
-    │   └── Konsmail.java
-    └── resources           # Contains resources used in the app (images, icons, etc.)
+    │   ├── gui                 # Contains GUI files
+    │   ├── models              # Contains models/objects used in the app
+    │   ├── utils               # Contains utility files
+    │   └── KurirOptimizer.java # Main/runner class
+    └── resources           
+        └── images              # Contains images used in the app
 ```
 
 ## Preview
@@ -35,5 +33,5 @@ These are the people who contributed to the project:
 | Nr | Name                                    | NIM  |
 |----|-----------------------------------------|------|
 | 1  | [Nara](https://github.com/vianneynara)  | -091 |
-| 2  | [Edward](https://github.com/Trustacean) | -067 |
-| 3  | [Patrick](https://github.com/FatDog98)  | -078 |
+| 2  | [Ditya](https://github.com/BoniRaDityA) | -085 |
+| 3  | [Dito](https://github.com/markusdito)   | -087 |
