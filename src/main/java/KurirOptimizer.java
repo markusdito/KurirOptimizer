@@ -1,3 +1,4 @@
+import gui.MainFrame;
 import utils.USwingAppearance;
 
 /**
@@ -10,5 +11,6 @@ public class KurirOptimizer {
 
     public static void main(String[] args) {
         USwingAppearance.setLooksAndFeel();
+        (new MainFrame()).setVisible(true);
     }
 }
