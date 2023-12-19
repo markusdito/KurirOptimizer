@@ -1,25 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package utils;
+package models.views;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Shape;
-import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.BorderFactory;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
-/**
- *
- * @author Markus
- */
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -32,7 +12,7 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
-public class RoundedPasswordField extends JPasswordField{
+public class RoundedTextField extends JTextField{
     private Color fillColor;
     private Color lineColor;
     private int strokeWidth;
@@ -41,7 +21,7 @@ public class RoundedPasswordField extends JPasswordField{
     private int roundBottomLeft = 0;
     private int roundBottomRight = 0;
     
-    public RoundedPasswordField() {
+    public RoundedTextField() {
         fillColor = new Color(236, 240, 241);
         lineColor = new Color(52, 152, 219);
         strokeWidth = 2;
