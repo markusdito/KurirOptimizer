@@ -1,30 +1,31 @@
 package models.objects;
 
 public class Edge {
-    String sourceVertex;
-    String destinationVertex;
+    
+    Vertex source;
+    Vertex destination;
     int weight;
 
-    public Edge(String sourceVertex, String destinationVertex, int weight) {
-        this.sourceVertex = sourceVertex;
-        this.destinationVertex = destinationVertex;
+    public Edge(Vertex source, Vertex destination, int weight) {
+        this.source = source;
+        this.destination = destination;
         this.weight = weight;
     }
 
-    public String getSourceVertex() {
-        return sourceVertex;
+    public Vertex getSource() {
+        return source;
     }
 
-    public void setSourceVertex(String sourceVertex) {
-        this.sourceVertex = sourceVertex;
+    public void setSource(Vertex source) {
+        this.source = source;
     }
 
-    public String getDestinationVertex() {
-        return destinationVertex;
+    public Vertex getDestination() {
+        return destination;
     }
 
-    public void setDestinationVertex(String destinationVertex) {
-        this.destinationVertex = destinationVertex;
+    public void setDestination(Vertex destination) {
+        this.destination = destination;
     }
 
     public int getWeight() {
