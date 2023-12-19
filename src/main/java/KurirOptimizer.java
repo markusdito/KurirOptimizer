@@ -1,14 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+import gui.MainFrame;
+import utils.USwingAppearance;
 
 /**
+ * This class runs the main application. Also sets the look and feel.
  *
- * @author narwa
- */
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
+
 public class KurirOptimizer {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        USwingAppearance.setLooksAndFeel();
+        (new MainFrame()).setVisible(true);
     }
 }
