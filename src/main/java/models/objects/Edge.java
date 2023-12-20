@@ -38,7 +38,7 @@ public class Edge {
 
     @Override
     public String toString() {
-        return "{" + "Path : Kota Asal = " + sourceVertex + 
-                ", Kota Tujuan = " + destinationVertex + " , Jarak = " + weight + '}';
+        return "{" + "Path : Kota Asal = " + source.label +
+                ", Kota Tujuan = " + destination.label + " , Jarak = " + weight + '}';
     }
 }
