@@ -1,5 +1,12 @@
 package models.objects;
 
+/**
+ * Kelas dasar yang merepresentasikan sisi pada graf, menghubungkan antar dua {@link Vertex}.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/BoniRaDityA">Ditya</a>
+ * */
+
 public class Edge {
     
     Vertex source;
@@ -38,7 +45,6 @@ public class Edge {
 
     @Override
     public String toString() {
-        return "{" + "Path : Kota Asal = " + source.label +
-                ", Kota Tujuan = " + destination.label + " , Jarak = " + weight + '}';
+        return "{%s -> %s: %d}".formatted(source, destination, weight);
     }
 }

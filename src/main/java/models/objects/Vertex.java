@@ -1,31 +1,44 @@
 package models.objects;
 
+/**
+ * Kelas ini adalah dasar kelas yang merepresentasikan titik dalam graf secara sederhana.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * @author <a href="https://github.com/BoniRaDityA">Ditya</a>
+ * */
+
 public class Vertex {
-    String label;
-    boolean visited;
-    
-    public Vertex(String label) {
-        this.label = label;
-        this.visited = visited;
-    }
-    
-    public String getLabel() {
-        return label;
-    }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
+	String label;
+	int id;
 
-    public boolean isVisited() {
-        return visited;
-    }
+	public Vertex(String label, int id) {
+		this.label = label;
+		this.id = id;
+	}
 
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }    
-    
-    public String displayCity(){
-        return label + " ";
-    }
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String displayCity() {
+		return label + " ";
+	}
+
+	@Override
+	public String toString() {
+		return "{%s}".formatted(label);
+	}
 }
