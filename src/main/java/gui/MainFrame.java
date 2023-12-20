@@ -1,11 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
+import models.objects.City;
+import models.objects.Graph;
+import utils.CityInitializer;
 import utils.ComponentUtils;
 import utils.UColors;
+
+import java.util.HashMap;
 
 /**
  *
@@ -13,13 +14,22 @@ import utils.UColors;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    private final Graph graph;
+    private final HashMap<String, City> cities;
+
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
         setColors();
-//        setUndecorated(true);
+
+        // Inisialisasi kota-kota
+        cities = new HashMap<>();
+        CityInitializer.initCities(cities);
+
+        graph = new Graph(29);
+        CityInitializer.initGraph(graph, cities);
     }
     
     private void setColors() {
