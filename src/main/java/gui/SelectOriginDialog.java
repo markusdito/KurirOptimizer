@@ -29,8 +29,8 @@ public class SelectOriginDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PETA_UTAMA = new javax.swing.JLabel();
         LAYERED_PANE = new javax.swing.JLayeredPane();
+        PETA_UTAMA = new javax.swing.JLabel();
         b_brebes = new javax.swing.JButton();
         b_tegal = new javax.swing.JButton();
         b_cilacap = new javax.swing.JButton();
@@ -313,6 +313,7 @@ public class SelectOriginDialog extends javax.swing.JDialog {
             }
         });
 
+        LAYERED_PANE.setLayer(PETA_UTAMA, javax.swing.JLayeredPane.DEFAULT_LAYER);
         LAYERED_PANE.setLayer(b_brebes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         LAYERED_PANE.setLayer(b_tegal, javax.swing.JLayeredPane.DEFAULT_LAYER);
         LAYERED_PANE.setLayer(b_cilacap, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -431,6 +432,11 @@ public class SelectOriginDialog extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LAYERED_PANELayout.createSequentialGroup()
                         .addComponent(b_jepara)
                         .addGap(274, 274, 274))))
+            .addGroup(LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LAYERED_PANELayout.createSequentialGroup()
+                    .addGap(12, 12, 12)
+                    .addComponent(PETA_UTAMA)
+                    .addContainerGap(12, Short.MAX_VALUE)))
         );
         LAYERED_PANELayout.setVerticalGroup(
             LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -452,7 +458,7 @@ public class SelectOriginDialog extends javax.swing.JDialog {
                                     .addComponent(b_demak)
                                     .addComponent(b_batang))
                                 .addGap(23, 23, 23)))
-                        .addGroup(LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b_tegal)
                             .addComponent(b_pekalongan))
                         .addGap(19, 19, 19)
@@ -521,6 +527,11 @@ public class SelectOriginDialog extends javax.swing.JDialog {
                 .addGap(43, 43, 43)
                 .addComponent(b_wonogiri)
                 .addGap(81, 81, 81))
+            .addGroup(LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LAYERED_PANELayout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(PETA_UTAMA)
+                    .addContainerGap(15, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -528,20 +539,10 @@ public class SelectOriginDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(LAYERED_PANE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(PETA_UTAMA)
-                    .addContainerGap(12, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(LAYERED_PANE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(15, 15, 15)
-                    .addComponent(PETA_UTAMA)
-                    .addContainerGap(15, Short.MAX_VALUE)))
         );
 
         pack();
