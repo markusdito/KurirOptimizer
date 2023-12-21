@@ -58,7 +58,37 @@ public class MainFrame extends javax.swing.JFrame {
         b_reset = new javax.swing.JButton();
         b_find = new javax.swing.JButton();
         MAP_PANEL = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         PETA_UTAMA = new javax.swing.JLabel();
+        l_brebes = new javax.swing.JLabel();
+        l_tegal = new javax.swing.JLabel();
+        l_pemalang = new javax.swing.JLabel();
+        l_pekalongan = new javax.swing.JLabel();
+        l_batang = new javax.swing.JLabel();
+        l_kendal = new javax.swing.JLabel();
+        l_semarang = new javax.swing.JLabel();
+        l_kudus = new javax.swing.JLabel();
+        l_demak = new javax.swing.JLabel();
+        l_jepara = new javax.swing.JLabel();
+        l_pati = new javax.swing.JLabel();
+        l_grobogan = new javax.swing.JLabel();
+        l_rembang = new javax.swing.JLabel();
+        l_blora = new javax.swing.JLabel();
+        l_banjarnegara = new javax.swing.JLabel();
+        l_temanggung = new javax.swing.JLabel();
+        l_wonosobo = new javax.swing.JLabel();
+        l_purbalingga = new javax.swing.JLabel();
+        l_cilacap = new javax.swing.JLabel();
+        l_banyumas = new javax.swing.JLabel();
+        l_boyolali = new javax.swing.JLabel();
+        l_kebumen = new javax.swing.JLabel();
+        l_purworejo = new javax.swing.JLabel();
+        l_magelang = new javax.swing.JLabel();
+        l_klaten = new javax.swing.JLabel();
+        l_sragen = new javax.swing.JLabel();
+        l_karanganyar = new javax.swing.JLabel();
+        l_sukoharjo = new javax.swing.JLabel();
+        l_wonogiri = new javax.swing.JLabel();
         CITYINFO_SCROLLPANE = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,21 +210,546 @@ public class MainFrame extends javax.swing.JFrame {
 
         PETA_UTAMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/peta_jawa_tengah.jpg"))); // NOI18N
 
+        l_brebes.setBackground(new java.awt.Color(255, 255, 255));
+        l_brebes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_brebes.setForeground(new java.awt.Color(0, 0, 0));
+        l_brebes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_brebes.setText("Brebes");
+        l_brebes.setAlignmentY(0.0F);
+        l_brebes.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_brebes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_brebes.setName(""); // NOI18N
+        l_brebes.setOpaque(true);
+
+        l_tegal.setBackground(new java.awt.Color(255, 255, 255));
+        l_tegal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_tegal.setForeground(new java.awt.Color(0, 0, 0));
+        l_tegal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_tegal.setText("Tegal");
+        l_tegal.setAlignmentY(0.0F);
+        l_tegal.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_tegal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_tegal.setOpaque(true);
+
+        l_pemalang.setBackground(new java.awt.Color(255, 255, 255));
+        l_pemalang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_pemalang.setForeground(new java.awt.Color(0, 0, 0));
+        l_pemalang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_pemalang.setText("Pemalang");
+        l_pemalang.setAlignmentY(0.0F);
+        l_pemalang.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_pemalang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_pemalang.setOpaque(true);
+
+        l_pekalongan.setBackground(new java.awt.Color(255, 255, 255));
+        l_pekalongan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_pekalongan.setForeground(new java.awt.Color(0, 0, 0));
+        l_pekalongan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_pekalongan.setText("Pekalongan");
+        l_pekalongan.setAlignmentY(0.0F);
+        l_pekalongan.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_pekalongan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_pekalongan.setOpaque(true);
+
+        l_batang.setBackground(new java.awt.Color(255, 255, 255));
+        l_batang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_batang.setForeground(new java.awt.Color(0, 0, 0));
+        l_batang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_batang.setText("Batang");
+        l_batang.setAlignmentY(0.0F);
+        l_batang.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_batang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_batang.setOpaque(true);
+
+        l_kendal.setBackground(new java.awt.Color(255, 255, 255));
+        l_kendal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_kendal.setForeground(new java.awt.Color(0, 0, 0));
+        l_kendal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_kendal.setText("Kendal");
+        l_kendal.setAlignmentY(0.0F);
+        l_kendal.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_kendal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_kendal.setOpaque(true);
+
+        l_semarang.setBackground(new java.awt.Color(255, 255, 255));
+        l_semarang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_semarang.setForeground(new java.awt.Color(0, 0, 0));
+        l_semarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_semarang.setText("Semarang");
+        l_semarang.setAlignmentY(0.0F);
+        l_semarang.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_semarang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_semarang.setOpaque(true);
+
+        l_kudus.setBackground(new java.awt.Color(255, 255, 255));
+        l_kudus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_kudus.setForeground(new java.awt.Color(0, 0, 0));
+        l_kudus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_kudus.setText("Kudus");
+        l_kudus.setAlignmentY(0.0F);
+        l_kudus.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_kudus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_kudus.setOpaque(true);
+
+        l_demak.setBackground(new java.awt.Color(255, 255, 255));
+        l_demak.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_demak.setForeground(new java.awt.Color(0, 0, 0));
+        l_demak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_demak.setText("Demak");
+        l_demak.setAlignmentY(0.0F);
+        l_demak.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_demak.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_demak.setOpaque(true);
+
+        l_jepara.setBackground(new java.awt.Color(255, 255, 255));
+        l_jepara.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_jepara.setForeground(new java.awt.Color(0, 0, 0));
+        l_jepara.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_jepara.setText("Jepara");
+        l_jepara.setAlignmentY(0.0F);
+        l_jepara.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_jepara.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_jepara.setOpaque(true);
+
+        l_pati.setBackground(new java.awt.Color(255, 255, 255));
+        l_pati.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_pati.setForeground(new java.awt.Color(0, 0, 0));
+        l_pati.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_pati.setText("Pati");
+        l_pati.setAlignmentY(0.0F);
+        l_pati.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_pati.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_pati.setOpaque(true);
+
+        l_grobogan.setBackground(new java.awt.Color(255, 255, 255));
+        l_grobogan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_grobogan.setForeground(new java.awt.Color(0, 0, 0));
+        l_grobogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_grobogan.setText("Grobogan");
+        l_grobogan.setAlignmentY(0.0F);
+        l_grobogan.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_grobogan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_grobogan.setOpaque(true);
+
+        l_rembang.setBackground(new java.awt.Color(255, 255, 255));
+        l_rembang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_rembang.setForeground(new java.awt.Color(0, 0, 0));
+        l_rembang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_rembang.setText("Rembang");
+        l_rembang.setAlignmentY(0.0F);
+        l_rembang.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_rembang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_rembang.setOpaque(true);
+
+        l_blora.setBackground(new java.awt.Color(255, 255, 255));
+        l_blora.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_blora.setForeground(new java.awt.Color(0, 0, 0));
+        l_blora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_blora.setText("Blora");
+        l_blora.setAlignmentY(0.0F);
+        l_blora.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_blora.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_blora.setOpaque(true);
+
+        l_banjarnegara.setBackground(new java.awt.Color(255, 255, 255));
+        l_banjarnegara.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_banjarnegara.setForeground(new java.awt.Color(0, 0, 0));
+        l_banjarnegara.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_banjarnegara.setText("Banjarnegara");
+        l_banjarnegara.setAlignmentY(0.0F);
+        l_banjarnegara.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_banjarnegara.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_banjarnegara.setOpaque(true);
+
+        l_temanggung.setBackground(new java.awt.Color(255, 255, 255));
+        l_temanggung.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_temanggung.setForeground(new java.awt.Color(0, 0, 0));
+        l_temanggung.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_temanggung.setText("Temanggung");
+        l_temanggung.setAlignmentY(0.0F);
+        l_temanggung.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_temanggung.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_temanggung.setOpaque(true);
+
+        l_wonosobo.setBackground(new java.awt.Color(255, 255, 255));
+        l_wonosobo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_wonosobo.setForeground(new java.awt.Color(0, 0, 0));
+        l_wonosobo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_wonosobo.setText("Wonosobo");
+        l_wonosobo.setAlignmentY(0.0F);
+        l_wonosobo.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_wonosobo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_wonosobo.setOpaque(true);
+
+        l_purbalingga.setBackground(new java.awt.Color(255, 255, 255));
+        l_purbalingga.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_purbalingga.setForeground(new java.awt.Color(0, 0, 0));
+        l_purbalingga.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_purbalingga.setText("Purbalingga");
+        l_purbalingga.setAlignmentY(0.0F);
+        l_purbalingga.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_purbalingga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_purbalingga.setOpaque(true);
+
+        l_cilacap.setBackground(new java.awt.Color(255, 255, 255));
+        l_cilacap.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_cilacap.setForeground(new java.awt.Color(0, 0, 0));
+        l_cilacap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_cilacap.setText("Cilacap");
+        l_cilacap.setAlignmentY(0.0F);
+        l_cilacap.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_cilacap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_cilacap.setOpaque(true);
+
+        l_banyumas.setBackground(new java.awt.Color(255, 255, 255));
+        l_banyumas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_banyumas.setForeground(new java.awt.Color(0, 0, 0));
+        l_banyumas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_banyumas.setText("Banyumas");
+        l_banyumas.setAlignmentY(0.0F);
+        l_banyumas.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_banyumas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_banyumas.setOpaque(true);
+
+        l_boyolali.setBackground(new java.awt.Color(255, 255, 255));
+        l_boyolali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_boyolali.setForeground(new java.awt.Color(0, 0, 0));
+        l_boyolali.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_boyolali.setText("Boyolali");
+        l_boyolali.setAlignmentY(0.0F);
+        l_boyolali.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_boyolali.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_boyolali.setOpaque(true);
+
+        l_kebumen.setBackground(new java.awt.Color(255, 255, 255));
+        l_kebumen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_kebumen.setForeground(new java.awt.Color(0, 0, 0));
+        l_kebumen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_kebumen.setText("Kebumen");
+        l_kebumen.setAlignmentY(0.0F);
+        l_kebumen.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_kebumen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_kebumen.setOpaque(true);
+
+        l_purworejo.setBackground(new java.awt.Color(255, 255, 255));
+        l_purworejo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_purworejo.setForeground(new java.awt.Color(0, 0, 0));
+        l_purworejo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_purworejo.setText("Purworejo");
+        l_purworejo.setAlignmentY(0.0F);
+        l_purworejo.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_purworejo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_purworejo.setOpaque(true);
+
+        l_magelang.setBackground(new java.awt.Color(255, 255, 255));
+        l_magelang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_magelang.setForeground(new java.awt.Color(0, 0, 0));
+        l_magelang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_magelang.setText("Magelang");
+        l_magelang.setAlignmentY(0.0F);
+        l_magelang.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_magelang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_magelang.setOpaque(true);
+
+        l_klaten.setBackground(new java.awt.Color(255, 255, 255));
+        l_klaten.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_klaten.setForeground(new java.awt.Color(0, 0, 0));
+        l_klaten.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_klaten.setText("Klaten");
+        l_klaten.setAlignmentY(0.0F);
+        l_klaten.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_klaten.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_klaten.setOpaque(true);
+
+        l_sragen.setBackground(new java.awt.Color(255, 255, 255));
+        l_sragen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_sragen.setForeground(new java.awt.Color(0, 0, 0));
+        l_sragen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_sragen.setText("Sragen");
+        l_sragen.setAlignmentY(0.0F);
+        l_sragen.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_sragen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_sragen.setOpaque(true);
+
+        l_karanganyar.setBackground(new java.awt.Color(255, 255, 255));
+        l_karanganyar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_karanganyar.setForeground(new java.awt.Color(0, 0, 0));
+        l_karanganyar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_karanganyar.setText("Karanganyar");
+        l_karanganyar.setAlignmentY(0.0F);
+        l_karanganyar.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_karanganyar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_karanganyar.setOpaque(true);
+
+        l_sukoharjo.setBackground(new java.awt.Color(255, 255, 255));
+        l_sukoharjo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_sukoharjo.setForeground(new java.awt.Color(0, 0, 0));
+        l_sukoharjo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_sukoharjo.setText("Sukoharjo");
+        l_sukoharjo.setAlignmentY(0.0F);
+        l_sukoharjo.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_sukoharjo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_sukoharjo.setOpaque(true);
+
+        l_wonogiri.setBackground(new java.awt.Color(255, 255, 255));
+        l_wonogiri.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        l_wonogiri.setForeground(new java.awt.Color(0, 0, 0));
+        l_wonogiri.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        l_wonogiri.setText("Wonogiri");
+        l_wonogiri.setAlignmentY(0.0F);
+        l_wonogiri.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        l_wonogiri.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        l_wonogiri.setOpaque(true);
+
+        jLayeredPane1.setLayer(PETA_UTAMA, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(l_brebes, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_tegal, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_pemalang, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_pekalongan, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_batang, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_kendal, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_semarang, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_kudus, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_demak, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_jepara, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_pati, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_grobogan, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_rembang, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_blora, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_banjarnegara, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_temanggung, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_wonosobo, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_purbalingga, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_cilacap, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_banyumas, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_boyolali, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_kebumen, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_purworejo, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_magelang, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_klaten, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_sragen, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_karanganyar, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_sukoharjo, javax.swing.JLayeredPane.DRAG_LAYER);
+        jLayeredPane1.setLayer(l_wonogiri, javax.swing.JLayeredPane.DRAG_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(l_brebes)
+                                .addGap(88, 88, 88)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_pemalang)
+                                        .addGap(95, 95, 95)
+                                        .addComponent(l_batang)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(l_kendal))
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_purbalingga)
+                                        .addGap(87, 87, 87)
+                                        .addComponent(l_wonosobo)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(l_cilacap)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(l_kebumen)
+                                        .addGap(201, 201, 201))
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addGap(207, 207, 207)
+                                        .addComponent(l_banjarnegara)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(l_demak)
+                        .addGap(26, 26, 26)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(l_kudus)
+                                .addGap(193, 193, 193))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(l_sragen)
+                                    .addComponent(l_grobogan))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(l_blora)
+                                .addGap(33, 33, 33))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(356, 356, 356)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_boyolali)
+                                        .addGap(174, 174, 174))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_purworejo)
+                                        .addGap(201, 201, 201)
+                                        .addComponent(l_sukoharjo)
+                                        .addGap(122, 122, 122))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_pati)
+                                        .addGap(71, 71, 71)))
+                                .addComponent(l_rembang))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(l_jepara)
+                                .addGap(232, 232, 232))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(l_wonogiri)
+                                .addGap(144, 144, 144))))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(l_temanggung)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addGap(113, 113, 113)
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(l_banyumas)
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addComponent(l_tegal)
+                                                .addGap(89, 89, 89)
+                                                .addComponent(l_pekalongan)))
+                                        .addGap(190, 190, 190)))
+                                .addComponent(l_semarang))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(455, 455, 455)
+                                .addComponent(l_magelang)
+                                .addGap(26, 26, 26)
+                                .addComponent(l_klaten)
+                                .addGap(76, 76, 76)
+                                .addComponent(l_karanganyar)))
+                        .addGap(130, 130, 130)))
+                .addGap(44, 44, 44))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PETA_UTAMA)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addComponent(l_pati)
+                                                .addGap(39, 39, 39))
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addComponent(l_rembang)
+                                                .addGap(27, 27, 27)))
+                                        .addComponent(l_kudus)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(l_blora))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_jepara)
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addGap(118, 118, 118)
+                                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(l_demak)
+                                                    .addComponent(l_brebes)))
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addGap(142, 142, 142)
+                                                .addComponent(l_grobogan))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(l_kendal)
+                                                .addGap(34, 34, 34)))))
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(l_karanganyar)
+                                            .addComponent(l_magelang))
+                                        .addGap(31, 31, 31))
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(l_temanggung)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(146, 146, 146)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(l_pemalang)
+                                            .addComponent(l_batang))
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addGap(37, 37, 37)
+                                                .addComponent(l_semarang)
+                                                .addGap(20, 20, 20)
+                                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(l_sragen)
+                                                    .addComponent(l_wonosobo)))
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addGap(19, 19, 19)
+                                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(l_tegal)
+                                                    .addComponent(l_pekalongan))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(l_purbalingga)))
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addGap(24, 24, 24)
+                                                .addComponent(l_boyolali))
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addGap(39, 39, 39)
+                                                .addComponent(l_banyumas))
+                                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(l_banjarnegara)))
+                                        .addGap(11, 11, 11)
+                                        .addComponent(l_klaten)
+                                        .addGap(6, 6, 6))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(l_cilacap)
+                                        .addGap(93, 93, 93)))))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(l_sukoharjo)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(l_purworejo)))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(l_kebumen)
+                        .addGap(62, 62, 62)))
+                .addComponent(l_wonogiri)
+                .addGap(73, 73, 73))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PETA_UTAMA)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout MAP_PANELLayout = new javax.swing.GroupLayout(MAP_PANEL);
         MAP_PANEL.setLayout(MAP_PANELLayout);
         MAP_PANELLayout.setHorizontalGroup(
             MAP_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAP_PANELLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PETA_UTAMA)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1)
         );
         MAP_PANELLayout.setVerticalGroup(
             MAP_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MAP_PANELLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PETA_UTAMA)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,10 +774,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(INPUT_PANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CITYINFO_SCROLLPANE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1380, 775));
+        setSize(new java.awt.Dimension(1382, 785));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,9 +852,39 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField f_origin;
     private javax.swing.JTextField f_origin1;
     private javax.swing.JComboBox<String> i_tipePengiriman;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel l_banjarnegara;
+    private javax.swing.JLabel l_banyumas;
+    private javax.swing.JLabel l_batang;
+    private javax.swing.JLabel l_blora;
+    private javax.swing.JLabel l_boyolali;
+    private javax.swing.JLabel l_brebes;
+    private javax.swing.JLabel l_cilacap;
+    private javax.swing.JLabel l_demak;
     private javax.swing.JLabel l_destination;
+    private javax.swing.JLabel l_grobogan;
+    private javax.swing.JLabel l_jepara;
+    private javax.swing.JLabel l_karanganyar;
+    private javax.swing.JLabel l_kebumen;
+    private javax.swing.JLabel l_kendal;
+    private javax.swing.JLabel l_klaten;
+    private javax.swing.JLabel l_kudus;
+    private javax.swing.JLabel l_magelang;
     private javax.swing.JLabel l_origin;
+    private javax.swing.JLabel l_pati;
+    private javax.swing.JLabel l_pekalongan;
+    private javax.swing.JLabel l_pemalang;
+    private javax.swing.JLabel l_purbalingga;
+    private javax.swing.JLabel l_purworejo;
+    private javax.swing.JLabel l_rembang;
+    private javax.swing.JLabel l_semarang;
+    private javax.swing.JLabel l_sragen;
+    private javax.swing.JLabel l_sukoharjo;
+    private javax.swing.JLabel l_tegal;
+    private javax.swing.JLabel l_temanggung;
     private javax.swing.JLabel l_tipePengiriman;
     private javax.swing.JLabel l_title;
+    private javax.swing.JLabel l_wonogiri;
+    private javax.swing.JLabel l_wonosobo;
     // End of variables declaration//GEN-END:variables
 }
