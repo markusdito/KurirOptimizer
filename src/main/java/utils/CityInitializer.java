@@ -61,80 +61,80 @@ public class CityInitializer {
 
 	public static void initEdges(Graph graph) {
 		graph.addEdge("BREBES", "TEGAL", 25);
-		graph.addEdge("BREBES", "CILACAP", 60);
-		graph.addEdge("BREBES", "BANYUMAS", 42);
+		graph.addEdge("BREBES", "CILACAP", 51);
+		graph.addEdge("BREBES", "BANYUMAS", 66);
 
-		graph.addEdge("CILACAP", "BANYUMAS", 60);
+		graph.addEdge("CILACAP", "BANYUMAS", 40);
 
 		graph.addEdge("TEGAL", "PEMALANG", 25);
-		graph.addEdge("TEGAL", "PURBALINGGA", 60);
-		graph.addEdge("TEGAL", "BANYUMAS", 42);
+		graph.addEdge("TEGAL", "PURBALINGGA", 32);
+		graph.addEdge("TEGAL", "BANYUMAS", 41);
 
-		graph.addEdge("BANYUMAS", "PURBALINGGA", 60);
+		graph.addEdge("BANYUMAS", "PURBALINGGA", 31);
 		graph.addEdge("BANYUMAS", "BANJARNEGARA", 25);
-		graph.addEdge("BANYUMAS", "KEBUMEN", 60);
+		graph.addEdge("BANYUMAS", "KEBUMEN", 59);
 
 		graph.addEdge("PEMALANG", "PEKALONGAN", 25);
-		graph.addEdge("PEMALANG", "PURBALINGGA", 60);
+		graph.addEdge("PEMALANG", "PURBALINGGA", 32);
 
-		graph.addEdge("PURBALINGGA", "PEKALONGAN", 60);
+		graph.addEdge("PURBALINGGA", "PEKALONGAN", 31);
 		graph.addEdge("PURBALINGGA", "BANJARNEGARA", 25);
 
-		graph.addEdge("BANJARNEGARA", "KEBUMEN", 60);
+		graph.addEdge("BANJARNEGARA", "KEBUMEN", 37);
 		graph.addEdge("BANJARNEGARA", "WONOSOBO", 25);
-		graph.addEdge("BANJARNEGARA", "BATANG", 45);
+		graph.addEdge("BANJARNEGARA", "BATANG", 42);
 
-		graph.addEdge("KEBUMEN", "WONOSOBO", 60);
-		graph.addEdge("KEBUMEN", "PURWOREJO", 25);
+		graph.addEdge("KEBUMEN", "WONOSOBO", 50);
+		graph.addEdge("KEBUMEN", "PURWOREJO", 40);
 
-		graph.addEdge("BATANG", "KENDAL", 50);
-		graph.addEdge("BATANG", "WONOSOBO", 60);
+		graph.addEdge("BATANG", "KENDAL", 33);
+		graph.addEdge("BATANG", "WONOSOBO", 53);
 
-		graph.addEdge("WONOSOBO", "KENDAL", 60);
-		graph.addEdge("WONOSOBO", "TEMANGGUNG", 60);
-		graph.addEdge("WONOSOBO", "MAGELANG", 25);
-		graph.addEdge("WONOSOBO", "PURWOREJO", 60);
+		graph.addEdge("WONOSOBO", "KENDAL", 65);
+		graph.addEdge("WONOSOBO", "TEMANGGUNG", 31);
+		graph.addEdge("WONOSOBO", "MAGELANG", 40);
+		graph.addEdge("WONOSOBO", "PURWOREJO", 35);
 
-		graph.addEdge("KENDAL", "SEMARANG", 60);
-		graph.addEdge("KENDAL", "TEMANGGUNG", 25);
+		graph.addEdge("KENDAL", "SEMARANG", 45);
+		graph.addEdge("KENDAL", "TEMANGGUNG", 32);
 
-		graph.addEdge("TEMANGGUNG", "SEMARANG", 25);
-		graph.addEdge("TEMANGGUNG", "MAGELANG", 60);
+		graph.addEdge("TEMANGGUNG", "SEMARANG", 34);
+		graph.addEdge("TEMANGGUNG", "MAGELANG", 32);
 
-		graph.addEdge("MAGELANG", "SEMARANG", 60);
-		graph.addEdge("MAGELANG", "BOYOLALI", 25);
+		graph.addEdge("MAGELANG", "SEMARANG", 41);
+		graph.addEdge("MAGELANG", "BOYOLALI", 56);
 
-		graph.addEdge("SEMARANG", "DEMAK", 25);
-		graph.addEdge("SEMARANG", "GROBOGAN", 60);
-		graph.addEdge("SEMARANG", "BOYOLALI", 60);
+		graph.addEdge("SEMARANG", "DEMAK", 43);
+		graph.addEdge("SEMARANG", "GROBOGAN", 48);
+		graph.addEdge("SEMARANG", "BOYOLALI", 24);
 
-		graph.addEdge("BOYOLALI", "GROBOGAN", 60);
-		graph.addEdge("BOYOLALI", "SRAGEN", 60);
-		graph.addEdge("BOYOLALI", "KARANGANYAR", 25);
-		graph.addEdge("BOYOLALI", "SUKOHARJO", 25);
-		graph.addEdge("BOYOLALI", "KLATEN", 25);
+		graph.addEdge("BOYOLALI", "GROBOGAN", 31);
+		graph.addEdge("BOYOLALI", "SRAGEN", 22);
+		graph.addEdge("BOYOLALI", "KARANGANYAR", 35);
+		graph.addEdge("BOYOLALI", "SUKOHARJO", 29);
+		graph.addEdge("BOYOLALI", "KLATEN", 26);
 
-		graph.addEdge("KLATEN", "SUKOHARJO", 60);
+		graph.addEdge("KLATEN", "SUKOHARJO", 23);
 
-		graph.addEdge("JEPARA", "DEMAK", 25);
-		graph.addEdge("JEPARA", "PATI", 60);
-		graph.addEdge("JEPARA", "KUDUS", 60);
+		graph.addEdge("JEPARA", "DEMAK", 32);
+		graph.addEdge("JEPARA", "PATI", 27);
+		graph.addEdge("JEPARA", "KUDUS", 25);
 
 		graph.addEdge("KUDUS", "PATI", 25);
-		graph.addEdge("KUDUS", "GROBOGAN", 25);
+		graph.addEdge("KUDUS", "GROBOGAN", 35);
 
-		graph.addEdge("GROBOGAN", "SRAGEN", 25);
-		graph.addEdge("GROBOGAN", "PATI", 60);
-		graph.addEdge("GROBOGAN", "BLORA", 60);
+		graph.addEdge("GROBOGAN", "SRAGEN", 26);
+		graph.addEdge("GROBOGAN", "PATI", 50);
+		graph.addEdge("GROBOGAN", "BLORA", 63);
 
-		graph.addEdge("SRAGEN", "KARANGANYAR", 60);
+		graph.addEdge("SRAGEN", "KARANGANYAR", 35);
 
-		graph.addEdge("KARANGANYAR", "SUKOHARJO", 60);
-		graph.addEdge("KARANGANYAR", "WONOGIRI", 25);
+		graph.addEdge("KARANGANYAR", "SUKOHARJO", 28);
+		graph.addEdge("KARANGANYAR", "WONOGIRI", 33);
 
-		graph.addEdge("PATI", "REMBANG", 25);
-		graph.addEdge("PATI", "BLORA", 25);
+		graph.addEdge("PATI", "REMBANG", 39);
+		graph.addEdge("PATI", "BLORA", 38);
 
-		graph.addEdge("REMBANG", "BLORA", 60);
+		graph.addEdge("REMBANG", "BLORA", 30);
 	}
 }
