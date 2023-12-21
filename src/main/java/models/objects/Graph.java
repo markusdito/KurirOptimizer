@@ -4,37 +4,26 @@ import java.util.*;
 
 public class Graph {
 
-	private Vertex[] vertices;
+	private City[] vertices;
 	private int[][] adjMatrix;
 	private int backIdx;
 	private HashMap<String, Integer> vertexPosition;
 
 	public Graph(int nVertices) {
-		this.vertices = new Vertex[nVertices];
+		this.vertices = new City[nVertices];
 		this.adjMatrix = new int[nVertices][nVertices];
 		this.backIdx = 0;
 		vertexPosition = new HashMap<>();
 	}
 
 	/**
-	 * Menambahkan sebuah vertex / titik ke dalam graf dengan label vertex.
-	 *
-	 * @param label label vertex
-	 */
-	public void addVertex(String label) {
-		vertices[backIdx] = new Vertex(label, backIdx);
-		vertexPosition.put(label.toUpperCase(), backIdx);
-		backIdx++;
-	}
-
-	/**
-	 * Menambahkan sebuah vertex / titik ke dalam graf dengan label vertex.
+	 * Menambahkan sebuah City / titik ke dalam graf dengan label vertex.
 	 *
 	 * @param vertex vertex yang sudah ada
 	 */
-	public void addVertex(Vertex vertex) {
-		vertices[backIdx] = vertex;
-		vertexPosition.put(vertex.label.toUpperCase(), backIdx);
+	public void addVertex(City vertex) {
+		vertices[vertex.id] = vertex;
+		vertexPosition.put(vertex.label.toUpperCase(), vertex.id);
 		backIdx++;
 	}
 
@@ -154,7 +143,7 @@ public class Graph {
 	/**
 	 * Mengembalikan list vertices / vertex-vertex milik graf ini.
 	 */
-	public Vertex[] getVertices() {
+	public City[] getVertices() {
 		return vertices;
 	}
 
@@ -174,7 +163,7 @@ public class Graph {
 	 */
 	public void displayVertices() {
 		System.out.print("Vertices: ");
-		for (Vertex v : vertices)
+		for (City v : vertices)
 			System.out.print(v + " ");
 		System.out.println();
 	}
@@ -183,20 +172,20 @@ public class Graph {
 	 * Menggambarkan adjacency matrix hubungan antar vertex.
 	 */
 	public void displayMatrix() {
-		System.out.print(" % ");
-		for (Vertex vertex : vertices) {
+		System.out.print(" %\t\t\t  ");
+		for (City vertex : vertices) {
 			if (vertex != null) {
-				System.out.printf("%2s ", vertex.label);
+				System.out.printf("%13s ", vertex.label);
 			}
 		}
 		System.out.println();
 
 		for (int i = 0; i < vertices.length; i++) {
 			if (vertices[i] != null) {
-				System.out.printf("%2s ", vertices[i].label);
+				System.out.printf("%13s ", vertices[i].label);
 				for (int j = 0; j < vertices.length; j++) {
 					if (vertices[j] != null)
-						System.out.printf("%2s ", (adjMatrix[i][j]));
+						System.out.printf("%13s ", (adjMatrix[i][j]));
 				}
 			}
 			System.out.println();
@@ -219,8 +208,8 @@ public class Graph {
 	 * @param src label asal
 	 * @param dst tujuan tujuan
 	 */
-	public void dijkstra(String src, String dst) {
-		dijkstra(
+	public int[] dijkstra(String src, String dst) {
+		return dijkstra(
 			vertexPosition.get(src.toUpperCase()),
 			vertexPosition.get(dst.toUpperCase())
 		);
@@ -231,11 +220,14 @@ public class Graph {
 	 *
 	 * @param src posisi vertex awal
 	 * @param dst posisi vertex akhir
+	 *
+	 * @return vertex kota yang dilewati
 	 * */
-	private void dijkstra(int src, int dst) {
+	private int[] dijkstra(int src, int dst) {
 		int[] distance = new int[vertices.length];
 		int[] previous = new int[vertices.length];
 		boolean[] visited = new boolean[vertices.length];
+		int actualCost = 0;
 
 		Arrays.fill(distance, Integer.MAX_VALUE);
 		distance[src] = 0;
@@ -245,22 +237,28 @@ public class Graph {
 			int u = findMinDist(distance, visited);
 			visited[u] = true;
 
-			for (int v = 0; v < vertices.length; v++)
+			for (int v = 0; v < vertices.length; v++) {
+				// Menghitung perbedaan ketinggian antara kota u dan v
+				int mdplDiff = vertices[v].getMdpl() - vertices[u].getMdpl();
+				int adjustedDistance = adjMatrix[u][v] + (mdplDiff / 100) * adjMatrix[u][v];
 				/*
 				 * Jika terdapat koneksi antar vertex u dan v DAN v belum true di visited DAN distance pada u
 				 * ditambah bobot vektor u v lebih kecil dari distance pada v.
 				 * */
 				if ((!visited[v] && adjMatrix[u][v] != 0)
 					&& (distance[u] != Integer.MAX_VALUE && distance[u] + adjMatrix[u][v] < distance[v])) {
-					distance[v] = distance[u] + adjMatrix[u][v];// Isi distance pada v dengan distance u + bobot
-					previous[v] = u;							// Isi previous pada v dengan u
+					distance[v] = distance[u] + adjustedDistance;
+					actualCost = distance[u] + adjMatrix[u][v];
+					previous[v] = u;
 				}
+			}
 		}
 
 		/* Cetak harga dan urutan */
 		System.out.println("Shortest distance from "
-			+ vertices[src].label + " to " + vertices[dst].label + " costs " + distance[dst]);
-		printPath(previous, dst);
+			+ vertices[src].label + " to " + vertices[dst].label + " costs " + actualCost);
+//		printPath(previous, dst);
+		return previous;
 	}
 
 	/**
@@ -269,7 +267,7 @@ public class Graph {
 	 * @param previous list previous dari vertex
 	 * @param currentVertex index vertex yang ingin dicetak pada previous
 	 * */
-	private void printPath(int[] previous, int currentVertex) {
+	public void printPath(int[] previous, int currentVertex) {
 		/* Base case: index vertex sudah outbound */
 		if (currentVertex == -1) {
 			return;
@@ -280,6 +278,42 @@ public class Graph {
 
 		// Cetak label vertex
 		System.out.print(vertices[currentVertex].label + " ");
+	}
+
+	/**
+	 * Mendapatkan urutan vertex yang sudah terurut dari perhitungan successor pengembalian dijkstra.
+	 * */
+	public List<City> getVertexOrder(int[] previous, int currentVertex, List<City> vertexOrder) {
+		/* Base case: index vertex sudah outbound */
+		if (currentVertex == -1) {
+			return null;
+		}
+
+		// Secara rekurisf mencetak previous dari vertex sebelumnya
+		getVertexOrder(previous, previous[currentVertex], vertexOrder);
+
+		vertexOrder.add(vertices[currentVertex]);
+		return vertexOrder;
+	}
+
+	/**
+	 * Mendapatkan jarak asli (tanpa perhitungan MDPL) dari sebuah list city terurut.
+	 * */
+	public int[] getVertexDistances(List<City> vertexOrder) {
+		int[] distances = new int[vertexOrder.size() - 1];
+		for (int i = 0; i < vertexOrder.size() - 1; i++) {
+			distances[i] = adjMatrix[vertexOrder.get(i).getId()][vertexOrder.get(i + 1).getId()];
+		}
+		return distances;
+	}
+
+	/**
+	 * Mencetak seluruh kota yang sudah terurut dengan jarak yang berelasi dengan kota sebelumnya (indexnya).
+	 * */
+	public void printEachVertexDistance(List<City> vertexOrder, int[] distances) {
+		for (int i = 0; i < vertexOrder.size() - 1; i++) {
+			System.out.printf("%s -> %s: %d\n", vertexOrder.get(i).getLabel(), vertexOrder.get(i + 1).getLabel(), distances[i]);
+		}
 	}
 
 	/**
@@ -327,5 +361,10 @@ public class Graph {
 				System.out.print(vertices[v].label + " ");
 		}
 		System.out.println();
+	}
+
+	/* Getter for vertex */
+	public int getVertex(String vertexLabel) {
+		return vertexPosition.get(vertexLabel.toUpperCase());
 	}
 }
