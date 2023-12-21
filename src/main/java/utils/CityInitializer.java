@@ -50,6 +50,7 @@ public class CityInitializer {
         cities.put("SRAGEN", new City("SRAGEN", 25, 54));
         cities.put("SUKOHARJO", new City("SUKOHARJO", 26, 80 + 22));
         cities.put("KARANGANYAR", new City("KARANGANYAR", 27, 86));
+		cities.put("WONOGIRI", new City("WONOGIRI", 28, 100));
     }
 
     public static void initGraph(Graph graph, Map<String, City> cities) {
@@ -58,11 +59,7 @@ public class CityInitializer {
         }
     }
 
-	public static void initEdges(Graph graph, Map<String, City> cities) {
-		if (!cities.equals(CityInitializer.cities)) {
-			throw new IllegalArgumentException("cities must be equal to CityInitializer.cities");
-		}
-
+	public static void initEdges(Graph graph) {
 		graph.addEdge("BREBES", "TEGAL", 25);
 		graph.addEdge("BREBES", "CILACAP", 60);
 		graph.addEdge("BREBES", "BANYUMAS", 42);
