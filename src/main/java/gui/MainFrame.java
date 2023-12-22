@@ -16,12 +16,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private final Graph graph;
     private final HashMap<String, City> cities;
-
+    private City currentOrigin;
+    private City currentDestination;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+
+        // Mengatur warna UI
         setColors();
 
         // Inisialisasi kota-kota
@@ -34,6 +37,9 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void setColors() {
         ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), INPUT_PANE, MAP_PANEL, CITYINFO_SCROLLPANE);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_selectOrigin, b_selectDestination);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_RED.toColor(), b_reset);
+        ComponentUtils.setBackgroundColor(UColors.BRIGHT_GREEN.toColor(), b_find);
     }
 
     /**
@@ -51,10 +57,8 @@ public class MainFrame extends javax.swing.JFrame {
         f_origin = new javax.swing.JTextField();
         b_selectOrigin = new javax.swing.JButton();
         l_destination = new javax.swing.JLabel();
-        f_origin1 = new javax.swing.JTextField();
+        f_destination = new javax.swing.JTextField();
         b_selectDestination = new javax.swing.JButton();
-        l_tipePengiriman = new javax.swing.JLabel();
-        i_tipePengiriman = new javax.swing.JComboBox<>();
         b_reset = new javax.swing.JButton();
         b_find = new javax.swing.JButton();
         MAP_PANEL = new javax.swing.JPanel();
@@ -103,11 +107,6 @@ public class MainFrame extends javax.swing.JFrame {
         l_origin.setText("Origin");
 
         f_origin.setEditable(false);
-        f_origin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_originActionPerformed(evt);
-            }
-        });
 
         b_selectOrigin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_selectOrigin.setText("Select Origin");
@@ -119,22 +118,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_destination.setText("Destination");
 
-        f_origin1.setEditable(false);
+        f_destination.setEditable(false);
 
         b_selectDestination.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_selectDestination.setText("Select Destination");
         b_selectDestination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_selectDestinationActionPerformed(evt);
-            }
-        });
-
-        l_tipePengiriman.setText("Tipe Pengiriman");
-
-        i_tipePengiriman.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Reguler", "Express", "Ekonomi" }));
-        i_tipePengiriman.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i_tipePengirimanActionPerformed(evt);
             }
         });
 
@@ -168,12 +158,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(l_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_PANELayout.createSequentialGroup()
                         .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(i_tipePengiriman, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(f_origin1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(f_destination, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_origin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(l_destination, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(f_origin, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l_tipePengiriman, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(f_origin, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(b_selectOrigin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,12 +183,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(l_destination)
                 .addGap(0, 0, 0)
                 .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(f_origin1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_destination, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_selectDestination))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(l_tipePengiriman)
-                .addGap(0, 0, 0)
-                .addComponent(i_tipePengiriman, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,7 +196,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_brebes.setBackground(new java.awt.Color(255, 255, 255));
         l_brebes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_brebes.setForeground(new java.awt.Color(0, 0, 0));
         l_brebes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_brebes.setText("Brebes");
         l_brebes.setAlignmentY(0.0F);
@@ -223,7 +206,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_tegal.setBackground(new java.awt.Color(255, 255, 255));
         l_tegal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_tegal.setForeground(new java.awt.Color(0, 0, 0));
         l_tegal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_tegal.setText("Tegal");
         l_tegal.setAlignmentY(0.0F);
@@ -233,7 +215,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_pemalang.setBackground(new java.awt.Color(255, 255, 255));
         l_pemalang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_pemalang.setForeground(new java.awt.Color(0, 0, 0));
         l_pemalang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_pemalang.setText("Pemalang");
         l_pemalang.setAlignmentY(0.0F);
@@ -243,7 +224,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_pekalongan.setBackground(new java.awt.Color(255, 255, 255));
         l_pekalongan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_pekalongan.setForeground(new java.awt.Color(0, 0, 0));
         l_pekalongan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_pekalongan.setText("Pekalongan");
         l_pekalongan.setAlignmentY(0.0F);
@@ -253,7 +233,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_batang.setBackground(new java.awt.Color(255, 255, 255));
         l_batang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_batang.setForeground(new java.awt.Color(0, 0, 0));
         l_batang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_batang.setText("Batang");
         l_batang.setAlignmentY(0.0F);
@@ -263,7 +242,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_kendal.setBackground(new java.awt.Color(255, 255, 255));
         l_kendal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_kendal.setForeground(new java.awt.Color(0, 0, 0));
         l_kendal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_kendal.setText("Kendal");
         l_kendal.setAlignmentY(0.0F);
@@ -273,7 +251,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_semarang.setBackground(new java.awt.Color(255, 255, 255));
         l_semarang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_semarang.setForeground(new java.awt.Color(0, 0, 0));
         l_semarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_semarang.setText("Semarang");
         l_semarang.setAlignmentY(0.0F);
@@ -283,7 +260,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_kudus.setBackground(new java.awt.Color(255, 255, 255));
         l_kudus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_kudus.setForeground(new java.awt.Color(0, 0, 0));
         l_kudus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_kudus.setText("Kudus");
         l_kudus.setAlignmentY(0.0F);
@@ -293,7 +269,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_demak.setBackground(new java.awt.Color(255, 255, 255));
         l_demak.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_demak.setForeground(new java.awt.Color(0, 0, 0));
         l_demak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_demak.setText("Demak");
         l_demak.setAlignmentY(0.0F);
@@ -303,7 +278,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_jepara.setBackground(new java.awt.Color(255, 255, 255));
         l_jepara.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_jepara.setForeground(new java.awt.Color(0, 0, 0));
         l_jepara.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_jepara.setText("Jepara");
         l_jepara.setAlignmentY(0.0F);
@@ -313,7 +287,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_pati.setBackground(new java.awt.Color(255, 255, 255));
         l_pati.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_pati.setForeground(new java.awt.Color(0, 0, 0));
         l_pati.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_pati.setText("Pati");
         l_pati.setAlignmentY(0.0F);
@@ -323,7 +296,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_grobogan.setBackground(new java.awt.Color(255, 255, 255));
         l_grobogan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_grobogan.setForeground(new java.awt.Color(0, 0, 0));
         l_grobogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_grobogan.setText("Grobogan");
         l_grobogan.setAlignmentY(0.0F);
@@ -333,7 +305,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_rembang.setBackground(new java.awt.Color(255, 255, 255));
         l_rembang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_rembang.setForeground(new java.awt.Color(0, 0, 0));
         l_rembang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_rembang.setText("Rembang");
         l_rembang.setAlignmentY(0.0F);
@@ -343,7 +314,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_blora.setBackground(new java.awt.Color(255, 255, 255));
         l_blora.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_blora.setForeground(new java.awt.Color(0, 0, 0));
         l_blora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_blora.setText("Blora");
         l_blora.setAlignmentY(0.0F);
@@ -353,7 +323,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_banjarnegara.setBackground(new java.awt.Color(255, 255, 255));
         l_banjarnegara.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_banjarnegara.setForeground(new java.awt.Color(0, 0, 0));
         l_banjarnegara.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_banjarnegara.setText("Banjarnegara");
         l_banjarnegara.setAlignmentY(0.0F);
@@ -363,7 +332,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_temanggung.setBackground(new java.awt.Color(255, 255, 255));
         l_temanggung.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_temanggung.setForeground(new java.awt.Color(0, 0, 0));
         l_temanggung.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_temanggung.setText("Temanggung");
         l_temanggung.setAlignmentY(0.0F);
@@ -373,7 +341,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_wonosobo.setBackground(new java.awt.Color(255, 255, 255));
         l_wonosobo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_wonosobo.setForeground(new java.awt.Color(0, 0, 0));
         l_wonosobo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_wonosobo.setText("Wonosobo");
         l_wonosobo.setAlignmentY(0.0F);
@@ -383,7 +350,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_purbalingga.setBackground(new java.awt.Color(255, 255, 255));
         l_purbalingga.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_purbalingga.setForeground(new java.awt.Color(0, 0, 0));
         l_purbalingga.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_purbalingga.setText("Purbalingga");
         l_purbalingga.setAlignmentY(0.0F);
@@ -393,7 +359,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_cilacap.setBackground(new java.awt.Color(255, 255, 255));
         l_cilacap.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_cilacap.setForeground(new java.awt.Color(0, 0, 0));
         l_cilacap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_cilacap.setText("Cilacap");
         l_cilacap.setAlignmentY(0.0F);
@@ -403,7 +368,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_banyumas.setBackground(new java.awt.Color(255, 255, 255));
         l_banyumas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_banyumas.setForeground(new java.awt.Color(0, 0, 0));
         l_banyumas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_banyumas.setText("Banyumas");
         l_banyumas.setAlignmentY(0.0F);
@@ -413,7 +377,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_boyolali.setBackground(new java.awt.Color(255, 255, 255));
         l_boyolali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_boyolali.setForeground(new java.awt.Color(0, 0, 0));
         l_boyolali.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_boyolali.setText("Boyolali");
         l_boyolali.setAlignmentY(0.0F);
@@ -423,7 +386,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_kebumen.setBackground(new java.awt.Color(255, 255, 255));
         l_kebumen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_kebumen.setForeground(new java.awt.Color(0, 0, 0));
         l_kebumen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_kebumen.setText("Kebumen");
         l_kebumen.setAlignmentY(0.0F);
@@ -433,7 +395,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_purworejo.setBackground(new java.awt.Color(255, 255, 255));
         l_purworejo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_purworejo.setForeground(new java.awt.Color(0, 0, 0));
         l_purworejo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_purworejo.setText("Purworejo");
         l_purworejo.setAlignmentY(0.0F);
@@ -443,7 +404,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_magelang.setBackground(new java.awt.Color(255, 255, 255));
         l_magelang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_magelang.setForeground(new java.awt.Color(0, 0, 0));
         l_magelang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_magelang.setText("Magelang");
         l_magelang.setAlignmentY(0.0F);
@@ -453,7 +413,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_klaten.setBackground(new java.awt.Color(255, 255, 255));
         l_klaten.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_klaten.setForeground(new java.awt.Color(0, 0, 0));
         l_klaten.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_klaten.setText("Klaten");
         l_klaten.setAlignmentY(0.0F);
@@ -463,7 +422,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_sragen.setBackground(new java.awt.Color(255, 255, 255));
         l_sragen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_sragen.setForeground(new java.awt.Color(0, 0, 0));
         l_sragen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_sragen.setText("Sragen");
         l_sragen.setAlignmentY(0.0F);
@@ -473,7 +431,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_karanganyar.setBackground(new java.awt.Color(255, 255, 255));
         l_karanganyar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_karanganyar.setForeground(new java.awt.Color(0, 0, 0));
         l_karanganyar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_karanganyar.setText("Karanganyar");
         l_karanganyar.setAlignmentY(0.0F);
@@ -483,7 +440,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_sukoharjo.setBackground(new java.awt.Color(255, 255, 255));
         l_sukoharjo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_sukoharjo.setForeground(new java.awt.Color(0, 0, 0));
         l_sukoharjo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_sukoharjo.setText("Sukoharjo");
         l_sukoharjo.setAlignmentY(0.0F);
@@ -493,7 +449,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         l_wonogiri.setBackground(new java.awt.Color(255, 255, 255));
         l_wonogiri.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        l_wonogiri.setForeground(new java.awt.Color(0, 0, 0));
         l_wonogiri.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_wonogiri.setText("Wonogiri");
         l_wonogiri.setAlignmentY(0.0F);
@@ -609,7 +564,6 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(l_temanggung)
                                         .addGap(18, 18, 18))
                                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
@@ -782,28 +736,77 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_selectOriginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_selectOriginActionPerformed
-        // TODO add your handling code here:
+        (new SelectOriginDialog(this, true)).setVisible(true);
     }//GEN-LAST:event_b_selectOriginActionPerformed
 
     private void b_selectDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_selectDestinationActionPerformed
-        // TODO add your handling code here:
+        (new SelectDestinationDialog(this, true)).setVisible(true);
     }//GEN-LAST:event_b_selectDestinationActionPerformed
 
-    private void f_originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_originActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_originActionPerformed
-
     private void b_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetActionPerformed
-        // TODO add your handling code here:
+        setCurrentOrigin((City) null);
+        setCurrentDestination((City) null);
     }//GEN-LAST:event_b_resetActionPerformed
 
     private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_findActionPerformed
 
-    private void i_tipePengirimanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_tipePengirimanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_i_tipePengirimanActionPerformed
+    /* Other methods */
+
+    /**
+     * Mengecek apabila kota yang dimasukkan merupakan kota yang sama dengan {@link #currentOrigin}.
+     * */
+    public boolean isCurrentOrigin(String city) {
+        if (currentOrigin == null)
+            return false;
+        return city.equals(currentOrigin.getLabel());
+    }
+
+    /**
+     * Mengecek apaible kota yang dimasukkan merupakan kota yang sama dengan {@link #currentDestination}.
+     * */
+    public boolean isCurrentDestination(String city) {
+        if (currentDestination == null)
+            return false;
+        return city.equals(currentDestination.getLabel());
+    }
+
+    /* Setters getters */
+
+    public City getCurrentOrigin() {
+        return currentOrigin;
+    }
+
+    public City getCurrentDestination() {
+        return currentDestination;
+    }
+
+    public void setCurrentOrigin(String newOrigin) {
+        this.currentOrigin = cities.get(newOrigin);
+        f_origin.setText(currentOrigin.getLabel());
+    }
+
+    public void setCurrentOrigin(City currentOrigin) {
+        this.currentOrigin = currentOrigin;
+        if (currentOrigin == null)
+            f_origin.setText("");
+        else
+            f_origin.setText(currentOrigin.getLabel());
+    }
+
+    public void setCurrentDestination(String newDestination) {
+        this.currentDestination = cities.get(newDestination);
+        f_destination.setText(currentDestination.getLabel());
+    }
+
+    public void setCurrentDestination(City currentDestination) {
+        this.currentDestination = currentDestination;
+        if (currentDestination == null)
+            f_destination.setText("");
+        else
+            f_destination.setText(currentDestination.getLabel());
+    }
 
     /**
      * @param args the command line arguments
@@ -849,9 +852,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton b_reset;
     private javax.swing.JButton b_selectDestination;
     private javax.swing.JButton b_selectOrigin;
+    private javax.swing.JTextField f_destination;
     private javax.swing.JTextField f_origin;
-    private javax.swing.JTextField f_origin1;
-    private javax.swing.JComboBox<String> i_tipePengiriman;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLabel l_banjarnegara;
     private javax.swing.JLabel l_banyumas;
@@ -882,7 +884,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel l_sukoharjo;
     private javax.swing.JLabel l_tegal;
     private javax.swing.JLabel l_temanggung;
-    private javax.swing.JLabel l_tipePengiriman;
     private javax.swing.JLabel l_title;
     private javax.swing.JLabel l_wonogiri;
     private javax.swing.JLabel l_wonosobo;
