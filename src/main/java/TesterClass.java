@@ -25,7 +25,7 @@ public class TesterClass {
 
 		graph.displayMatrix();
 		var src = "BREBES";
-		var dst = "SRAGEN";
+		var dst = "PEKALONGAN";
 		var vertexOrder = graph.dijkstra(src, dst);
 
 		System.out.println();
