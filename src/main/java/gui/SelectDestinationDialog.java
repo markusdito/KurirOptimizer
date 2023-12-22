@@ -694,7 +694,13 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
         if (mainFrame.isCurrentOrigin(cityName)) {
             JOptionPane.showMessageDialog(
                 this,
-                "Kota sudah dipilih!",
+                "Kota sudah dipilih sebagai asal!",
+                "Informasi",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else if (mainFrame.isCurrentDestination(cityName)) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Kota sudah dipilih sebagai tujuan!",
                 "Informasi",
                 JOptionPane.INFORMATION_MESSAGE);
         } else {
