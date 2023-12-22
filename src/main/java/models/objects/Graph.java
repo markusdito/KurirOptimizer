@@ -208,7 +208,7 @@ public class Graph {
 	 * @param src label asal
 	 * @param dst tujuan tujuan
 	 */
-	public int[] dijkstra(String src, String dst) {
+	public List<City> dijkstra(String src, String dst) {
 		return dijkstra(
 			vertexPosition.get(src.toUpperCase()),
 			vertexPosition.get(dst.toUpperCase())
@@ -223,7 +223,7 @@ public class Graph {
 	 *
 	 * @return vertex kota yang dilewati
 	 * */
-	private int[] dijkstra(int src, int dst) {
+	private List<City> dijkstra(int src, int dst) {
 		int[] distance = new int[vertices.length];
 		int[] previous = new int[vertices.length];
 		boolean[] visited = new boolean[vertices.length];
@@ -257,27 +257,8 @@ public class Graph {
 		/* Cetak harga dan urutan */
 		System.out.println("Shortest distance from "
 			+ vertices[src].label + " to " + vertices[dst].label + " costs " + actualCost);
-//		printPath(previous, dst);
-		return previous;
-	}
-
-	/**
-	 * Mencetak alur path dari vertex awal ke vertex akhir dengan algoritma Dijkstra secara rekursif.
-	 *
-	 * @param previous list previous dari vertex
-	 * @param currentVertex index vertex yang ingin dicetak pada previous
-	 * */
-	public void printPath(int[] previous, int currentVertex) {
-		/* Base case: index vertex sudah outbound */
-		if (currentVertex == -1) {
-			return;
-		}
-
-		// Secara rekurisf mencetak previous dari vertex sebelumnya
-		printPath(previous, previous[currentVertex]);
-
-		// Cetak label vertex
-		System.out.print(vertices[currentVertex].label + " ");
+		List<City> orderedVertex = getVertexOrder(previous, dst, new ArrayList<>());
+		return orderedVertex;
 	}
 
 	/**
