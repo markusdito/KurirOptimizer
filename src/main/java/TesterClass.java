@@ -26,11 +26,9 @@ public class TesterClass {
 		graph.displayMatrix();
 		var src = "BREBES";
 		var dst = "SRAGEN";
-		var previous = graph.dijkstra(src, dst);
-		graph.printPath(previous, graph.getVertex(dst));
+		var vertexOrder = graph.dijkstra(src, dst);
 
 		System.out.println();
-		var vertexOrder = graph.getVertexOrder(previous, graph.getVertex(dst), new ArrayList<>());
 		var vertexDists = graph.getVertexDistances(vertexOrder);
 		for (var vertex : vertexOrder) {
 			System.out.printf("%s ", vertex.getLabel());
