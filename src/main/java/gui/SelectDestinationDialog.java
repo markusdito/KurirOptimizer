@@ -4,13 +4,19 @@
  */
 package gui;
 
+import models.objects.City;
+import utils.ComponentUtils;
 import utils.UColors;
+
+import javax.swing.*;
+import java.util.Map;
 
 /**
  *
  * @author narwa
  */
 public class SelectDestinationDialog extends javax.swing.JDialog {
+    private MainFrame mainFrame;
 
     /**
      * Creates new form SelectOriginDialog
@@ -18,6 +24,10 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
     public SelectDestinationDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.mainFrame = (MainFrame) parent;
+
+        // Mengatur warna UI
+        ComponentUtils.setBackgroundColor(UColors.MAROON.toColor(), this.getContentPane());
     }
 
     /**
@@ -29,8 +39,8 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PETA_UTAMA = new javax.swing.JLabel();
         LAYERED_PANE = new javax.swing.JLayeredPane();
+        PETA_UTAMA = new javax.swing.JLabel();
         b_brebes = new javax.swing.JButton();
         b_tegal = new javax.swing.JButton();
         b_cilacap = new javax.swing.JButton();
@@ -106,6 +116,11 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
         b_purbalingga.setBackground(UColors.BRIGHT_ORANGE.toColor());
         b_purbalingga.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_purbalingga.setText("Purbalingga");
+        b_purbalingga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_purbalinggaActionPerformed(evt);
+            }
+        });
 
         b_pemalang.setBackground(UColors.BRIGHT_ORANGE.toColor());
         b_pemalang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -137,6 +152,11 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
         b_purworejo.setBackground(UColors.BRIGHT_ORANGE.toColor());
         b_purworejo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_purworejo.setText("Purworejo");
+        b_purworejo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_purworejoActionPerformed(evt);
+            }
+        });
 
         b_banjarnegara.setBackground(UColors.BRIGHT_ORANGE.toColor());
         b_banjarnegara.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -159,6 +179,11 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
         b_batang.setBackground(UColors.BRIGHT_ORANGE.toColor());
         b_batang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         b_batang.setText("Batang");
+        b_batang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_batangActionPerformed(evt);
+            }
+        });
 
         b_wonosobo.setBackground(UColors.BRIGHT_ORANGE.toColor());
         b_wonosobo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -313,35 +338,36 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
             }
         });
 
-        LAYERED_PANE.setLayer(b_brebes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_tegal, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_cilacap, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_banyumas, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_purbalingga, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_pemalang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_pekalongan, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_kebumen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_purworejo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_banjarnegara, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_kendal, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_batang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_wonosobo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_temanggung, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_magelang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_semarang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_demak, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_boyolali, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_klaten, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_kudus, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_jepara, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_rembang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_pati, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_blora, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_grobogan, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_sragen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_sukoharjo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_karanganyar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        LAYERED_PANE.setLayer(b_wonogiri, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        LAYERED_PANE.setLayer(PETA_UTAMA, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        LAYERED_PANE.setLayer(b_brebes, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_tegal, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_cilacap, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_banyumas, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_purbalingga, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_pemalang, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_pekalongan, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_kebumen, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_purworejo, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_banjarnegara, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_kendal, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_batang, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_wonosobo, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_temanggung, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_magelang, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_semarang, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_demak, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_boyolali, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_klaten, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_kudus, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_jepara, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_rembang, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_pati, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_blora, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_grobogan, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_sragen, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_sukoharjo, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_karanganyar, javax.swing.JLayeredPane.DRAG_LAYER);
+        LAYERED_PANE.setLayer(b_wonogiri, javax.swing.JLayeredPane.DRAG_LAYER);
 
         javax.swing.GroupLayout LAYERED_PANELayout = new javax.swing.GroupLayout(LAYERED_PANE);
         LAYERED_PANE.setLayout(LAYERED_PANELayout);
@@ -431,6 +457,11 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LAYERED_PANELayout.createSequentialGroup()
                         .addComponent(b_jepara)
                         .addGap(274, 274, 274))))
+            .addGroup(LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LAYERED_PANELayout.createSequentialGroup()
+                    .addGap(12, 12, 12)
+                    .addComponent(PETA_UTAMA)
+                    .addContainerGap(12, Short.MAX_VALUE)))
         );
         LAYERED_PANELayout.setVerticalGroup(
             LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,6 +552,11 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
                 .addGap(43, 43, 43)
                 .addComponent(b_wonogiri)
                 .addGap(81, 81, 81))
+            .addGroup(LAYERED_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(LAYERED_PANELayout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(PETA_UTAMA)
+                    .addContainerGap(15, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -528,20 +564,10 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(LAYERED_PANE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PETA_UTAMA)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(LAYERED_PANE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PETA_UTAMA)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -549,150 +575,132 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_brebesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_brebesActionPerformed
-        // TODO add your handling code here:
+        checkSet("BREBES");
     }//GEN-LAST:event_b_brebesActionPerformed
 
     private void b_tegalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_tegalActionPerformed
-        // TODO add your handling code here:
+        checkSet("TEGAL");
     }//GEN-LAST:event_b_tegalActionPerformed
 
     private void b_cilacapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cilacapActionPerformed
-        // TODO add your handling code here:
+        checkSet("CILACAP");
     }//GEN-LAST:event_b_cilacapActionPerformed
 
     private void b_banyumasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_banyumasActionPerformed
-        // TODO add your handling code here:
+        checkSet("BANYUMAS");
     }//GEN-LAST:event_b_banyumasActionPerformed
 
     private void b_pemalangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_pemalangActionPerformed
-        // TODO add your handling code here:
+        checkSet("PEMALANG");
     }//GEN-LAST:event_b_pemalangActionPerformed
 
     private void b_pekalonganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_pekalonganActionPerformed
-        // TODO add your handling code here:
+        checkSet("PEKALONGAN");
     }//GEN-LAST:event_b_pekalonganActionPerformed
 
     private void b_kebumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kebumenActionPerformed
-        // TODO add your handling code here:
+        checkSet("KEBUMEN");
     }//GEN-LAST:event_b_kebumenActionPerformed
 
     private void b_kendalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kendalActionPerformed
-        // TODO add your handling code here:
+        checkSet("KENDAL");
     }//GEN-LAST:event_b_kendalActionPerformed
 
     private void b_banjarnegaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_banjarnegaraActionPerformed
-        // TODO add your handling code here:
+        checkSet("BANJARNEGARA");
     }//GEN-LAST:event_b_banjarnegaraActionPerformed
 
     private void b_wonosoboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_wonosoboActionPerformed
-        // TODO add your handling code here:
+        checkSet("WONOSOBO");
     }//GEN-LAST:event_b_wonosoboActionPerformed
 
     private void b_temanggungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_temanggungActionPerformed
-        // TODO add your handling code here:
+        checkSet("TEMANGGUNG");
     }//GEN-LAST:event_b_temanggungActionPerformed
 
     private void b_magelangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_magelangActionPerformed
-        // TODO add your handling code here:
+        checkSet("MAGELANG");
     }//GEN-LAST:event_b_magelangActionPerformed
 
     private void b_semarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_semarangActionPerformed
-        // TODO add your handling code here:
+        checkSet("SEMARANG");
     }//GEN-LAST:event_b_semarangActionPerformed
 
     private void b_demakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_demakActionPerformed
-        // TODO add your handling code here:
+        checkSet("DEMAK");
     }//GEN-LAST:event_b_demakActionPerformed
 
     private void b_boyolaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_boyolaliActionPerformed
-        // TODO add your handling code here:
+        checkSet("BOYOLALI");
     }//GEN-LAST:event_b_boyolaliActionPerformed
 
     private void b_klatenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_klatenActionPerformed
-        // TODO add your handling code here:
+        checkSet("KLATEN");
     }//GEN-LAST:event_b_klatenActionPerformed
 
     private void b_kudusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_kudusActionPerformed
-        // TODO add your handling code here:
+        checkSet("KUDUS");
     }//GEN-LAST:event_b_kudusActionPerformed
 
     private void b_jeparaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_jeparaActionPerformed
-        // TODO add your handling code here:
+        checkSet("JEPARA");
     }//GEN-LAST:event_b_jeparaActionPerformed
 
     private void b_rembangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_rembangActionPerformed
-        // TODO add your handling code here:
+        checkSet("REMBANG");
     }//GEN-LAST:event_b_rembangActionPerformed
 
     private void b_patiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_patiActionPerformed
-        // TODO add your handling code here:
+        checkSet("PATI");
     }//GEN-LAST:event_b_patiActionPerformed
 
     private void b_bloraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_bloraActionPerformed
-        // TODO add your handling code here:
+        checkSet("BLORA");
     }//GEN-LAST:event_b_bloraActionPerformed
 
     private void b_groboganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_groboganActionPerformed
-        // TODO add your handling code here:
+        checkSet("GROBOGAN");
     }//GEN-LAST:event_b_groboganActionPerformed
 
     private void b_sragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sragenActionPerformed
-        // TODO add your handling code here:
+        checkSet("SRAGEN");
     }//GEN-LAST:event_b_sragenActionPerformed
 
     private void b_sukoharjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_sukoharjoActionPerformed
-        // TODO add your handling code here:
+        checkSet("SUKOHARJO");
     }//GEN-LAST:event_b_sukoharjoActionPerformed
 
     private void b_karanganyarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_karanganyarActionPerformed
-        // TODO add your handling code here:
+        checkSet("KARANGANYAR");
     }//GEN-LAST:event_b_karanganyarActionPerformed
 
     private void b_wonogiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_wonogiriActionPerformed
-        // TODO add your handling code here:
+        checkSet("WONOGIRI");
     }//GEN-LAST:event_b_wonogiriActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SelectDestinationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SelectDestinationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SelectDestinationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SelectDestinationDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void b_purbalinggaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_purbalinggaActionPerformed
+        checkSet("PURBALINGGA");
+    }//GEN-LAST:event_b_purbalinggaActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                SelectDestinationDialog dialog = new SelectDestinationDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+    private void b_batangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_batangActionPerformed
+        checkSet("BATANG");
+    }//GEN-LAST:event_b_batangActionPerformed
+
+    private void b_purworejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_purworejoActionPerformed
+        checkSet("PURWOREJO");
+    }//GEN-LAST:event_b_purworejoActionPerformed
+
+    private void checkSet(String cityName) {
+        if (mainFrame.isCurrentOrigin(cityName)) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Kota sudah dipilih!",
+                "Informasi",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            mainFrame.setCurrentDestination(cityName);
+        }
+        dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

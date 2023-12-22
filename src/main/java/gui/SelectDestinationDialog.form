@@ -26,36 +26,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="LAYERED_PANE" alignment="0" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="PETA_UTAMA" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="LAYERED_PANE" alignment="0" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="PETA_UTAMA" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="PETA_UTAMA">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/peta_jawa_tengah.jpg"/>
-        </Property>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JLayeredPane" name="LAYERED_PANE">
 
       <Layout>
@@ -165,6 +144,13 @@
                           <Component id="b_jepara" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="PETA_UTAMA" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -284,10 +270,24 @@
                   <Component id="b_wonogiri" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
               </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="PETA_UTAMA" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JLabel" name="PETA_UTAMA">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/peta_jawa_tengah.jpg"/>
+            </Property>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JButton" name="b_brebes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -301,6 +301,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_brebesActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_tegal">
           <Properties>
@@ -315,6 +318,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_tegalActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_cilacap">
           <Properties>
@@ -329,6 +335,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cilacapActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_banyumas">
           <Properties>
@@ -343,6 +352,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_banyumasActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_purbalingga">
           <Properties>
@@ -354,6 +366,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Purbalingga"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_purbalinggaActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_pemalang">
           <Properties>
@@ -368,6 +386,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_pemalangActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_pekalongan">
           <Properties>
@@ -382,6 +403,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_pekalonganActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_kebumen">
           <Properties>
@@ -396,6 +420,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kebumenActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_purworejo">
           <Properties>
@@ -407,6 +434,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Purworejo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_purworejoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_banjarnegara">
           <Properties>
@@ -421,6 +454,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_banjarnegaraActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_kendal">
           <Properties>
@@ -435,6 +471,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kendalActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_batang">
           <Properties>
@@ -446,6 +485,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Batang"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_batangActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_wonosobo">
           <Properties>
@@ -460,6 +505,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_wonosoboActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_temanggung">
           <Properties>
@@ -474,6 +522,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_temanggungActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_magelang">
           <Properties>
@@ -488,6 +539,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_magelangActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_semarang">
           <Properties>
@@ -502,6 +556,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_semarangActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_demak">
           <Properties>
@@ -516,6 +573,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_demakActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_boyolali">
           <Properties>
@@ -530,6 +590,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_boyolaliActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_klaten">
           <Properties>
@@ -544,6 +607,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_klatenActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_kudus">
           <Properties>
@@ -558,6 +624,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_kudusActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_jepara">
           <Properties>
@@ -572,6 +641,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_jeparaActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_rembang">
           <Properties>
@@ -586,6 +658,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_rembangActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_pati">
           <Properties>
@@ -600,6 +675,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_patiActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_blora">
           <Properties>
@@ -614,6 +692,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_bloraActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_grobogan">
           <Properties>
@@ -628,6 +709,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_groboganActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_sragen">
           <Properties>
@@ -642,6 +726,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_sragenActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_sukoharjo">
           <Properties>
@@ -656,6 +743,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_sukoharjoActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_karanganyar">
           <Properties>
@@ -670,6 +760,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_karanganyarActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="b_wonogiri">
           <Properties>
@@ -684,6 +777,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_wonogiriActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="400"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
