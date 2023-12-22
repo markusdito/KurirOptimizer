@@ -7,7 +7,6 @@ import utils.CityInitializer;
 import utils.ComponentUtils;
 import utils.UColors;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 
@@ -754,14 +753,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_b_selectDestinationActionPerformed
 
     private void b_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetActionPerformed
-        setCurrentOrigin((City) null);
-        setCurrentDestination((City) null);
-        CITY_PANEL_CONTAINER.removeAll();
-        CITY_PANEL_CONTAINER.repaint();
-        CITY_PANEL_CONTAINER.revalidate();
+        clearOriginDest();
+        clearInfoPanel();
     }//GEN-LAST:event_b_resetActionPerformed
 
     private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
+        clearInfoPanel();
         List<City> vertexOrder = graph.dijkstra(getCurrentOrigin().getLabel(), getCurrentDestination().getLabel());
         int[] vertexDist = graph.getVertexDistances(vertexOrder);
 
@@ -783,8 +780,7 @@ public class MainFrame extends javax.swing.JFrame {
         CITY_PANEL_CONTAINER.repaint();
         CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        setCurrentOrigin((City) null);
-        setCurrentDestination((City) null);
+        clearOriginDest();
     }//GEN-LAST:event_b_findActionPerformed
 
     /* Other methods */
@@ -841,6 +837,17 @@ public class MainFrame extends javax.swing.JFrame {
             f_destination.setText("");
         else
             f_destination.setText(currentDestination.getLabel());
+    }
+
+    private void clearInfoPanel() {
+        CITY_PANEL_CONTAINER.removeAll();
+        CITY_PANEL_CONTAINER.repaint();
+        CITY_PANEL_CONTAINER.revalidate();
+    }
+
+    private void clearOriginDest() {
+        setCurrentOrigin((City) null);
+        setCurrentDestination((City) null);
     }
 
     /**
