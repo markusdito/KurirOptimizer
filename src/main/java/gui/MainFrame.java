@@ -2,14 +2,16 @@ package gui;
 
 import models.objects.City;
 import models.objects.Graph;
+import models.views.CityInfoPanel;
 import utils.CityInitializer;
 import utils.ComponentUtils;
 import utils.UColors;
 
+import java.awt.*;
 import java.util.HashMap;
+import java.util.List;
 
 /**
- *
  * @author narwa
  */
 public class MainFrame extends javax.swing.JFrame {
@@ -18,6 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
     private final HashMap<String, City> cities;
     private City currentOrigin;
     private City currentDestination;
+
     /**
      * Creates new form MainFrame
      */
@@ -33,8 +36,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         graph = new Graph(29);
         CityInitializer.initGraph(graph, cities);
+        CityInitializer.initEdges(graph);
     }
-    
+
     private void setColors() {
         ComponentUtils.setBackgroundColor(UColors.IVORY.toColor(), INPUT_PANE, MAP_PANEL, CITYINFO_SCROLLPANE);
         ComponentUtils.setBackgroundColor(UColors.BRIGHT_ORANGE.toColor(), b_selectOrigin, b_selectDestination);
@@ -94,10 +98,11 @@ public class MainFrame extends javax.swing.JFrame {
         l_sukoharjo = new javax.swing.JLabel();
         l_wonogiri = new javax.swing.JLabel();
         CITYINFO_SCROLLPANE = new javax.swing.JScrollPane();
+        CITY_PANEL_CONTAINER = new models.views.CityInfoContainer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kurir Optimizer: Shortest Path Finder");
-        setMaximumSize(new java.awt.Dimension(1366, 768));
+        setMaximumSize(new java.awt.Dimension(1366, 796));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
 
@@ -706,6 +711,11 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(jLayeredPane1)
         );
 
+        CITYINFO_SCROLLPANE.setViewportView(CITY_PANEL_CONTAINER);
+
+        CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout());
+        CITYINFO_SCROLLPANE.setViewportView(CITY_PANEL_CONTAINER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -727,11 +737,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(MAP_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(INPUT_PANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CITYINFO_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addComponent(CITYINFO_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(1382, 785));
+        setSize(new java.awt.Dimension(1382, 804));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -746,17 +756,39 @@ public class MainFrame extends javax.swing.JFrame {
     private void b_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetActionPerformed
         setCurrentOrigin((City) null);
         setCurrentDestination((City) null);
+        CITY_PANEL_CONTAINER.removeAll();
+        CITY_PANEL_CONTAINER.repaint();
+        CITY_PANEL_CONTAINER.revalidate();
     }//GEN-LAST:event_b_resetActionPerformed
 
     private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
-        // TODO add your handling code here:
+        List<City> vertexOrder = graph.dijkstra(getCurrentOrigin().getLabel(), getCurrentDestination().getLabel());
+        int[] vertexDist = graph.getVertexDistances(vertexOrder);
+
+        int cityIndex = 0;
+        for (City city : vertexOrder) {
+            CityInfoPanel panel = new CityInfoPanel();
+            panel.setCityName(city.getLabel());
+
+            //TODO: benerin jarak antar kota
+            panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[cityIndex]);
+            panel.setCityElevation(panel.getCityElevationLabel() + city.getMdpl());
+            CITY_PANEL_CONTAINER.add(panel);
+
+            if (cityIndex != vertexDist.length-1) {
+                cityIndex++;
+            }
+        }
+        CITY_PANEL_CONTAINER.revalidate();
+        CITY_PANEL_CONTAINER.repaint();
+        CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
     }//GEN-LAST:event_b_findActionPerformed
 
     /* Other methods */
 
     /**
      * Mengecek apabila kota yang dimasukkan merupakan kota yang sama dengan {@link #currentOrigin}.
-     * */
+     */
     public boolean isCurrentOrigin(String city) {
         if (currentOrigin == null)
             return false;
@@ -765,7 +797,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Mengecek apaible kota yang dimasukkan merupakan kota yang sama dengan {@link #currentDestination}.
-     * */
+     */
     public boolean isCurrentDestination(String city) {
         if (currentDestination == null)
             return false;
@@ -815,7 +847,7 @@ public class MainFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -845,6 +877,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane CITYINFO_SCROLLPANE;
+    private models.views.CityInfoContainer CITY_PANEL_CONTAINER;
     private javax.swing.JPanel INPUT_PANE;
     private javax.swing.JPanel MAP_PANEL;
     private javax.swing.JLabel PETA_UTAMA;

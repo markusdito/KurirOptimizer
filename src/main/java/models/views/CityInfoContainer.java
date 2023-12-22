@@ -4,6 +4,8 @@
  */
 package models.views;
 
+import models.objects.Graph;
+
 /**
  *
  * @author narwa
@@ -26,8 +28,8 @@ public class CityInfoContainer extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setMaximumSize(new java.awt.Dimension(1366, 768));
-        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setMaximumSize(new java.awt.Dimension(1366, 150));
+        setMinimumSize(new java.awt.Dimension(0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -37,7 +39,7 @@ public class CityInfoContainer extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
+            .addGap(0, 150, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
