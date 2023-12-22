@@ -762,20 +762,20 @@ public class MainFrame extends javax.swing.JFrame {
         List<City> vertexOrder = graph.dijkstra(getCurrentOrigin().getLabel(), getCurrentDestination().getLabel());
         int[] vertexDist = graph.getVertexDistances(vertexOrder);
 
-        int cityIndex = 0;
-        for (City city : vertexOrder) {
+        for(int i = 0; i < vertexOrder.size(); i++) {
             CityInfoPanel panel = new CityInfoPanel();
-            panel.setCityName(city.getLabel());
+            panel.setCityName(vertexOrder.get(i).getLabel());
 
-            //TODO: benerin jarak antar kota
-            panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[cityIndex]);
-            panel.setCityElevation(panel.getCityElevationLabel() + city.getMdpl());
-            CITY_PANEL_CONTAINER.add(panel);
-
-            if (cityIndex != vertexDist.length-1) {
-                cityIndex++;
+            if (i != 0) {
+                panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[i - 1]);
+            } else {
+                panel.setCityDistance("Awal");
             }
+
+            panel.setCityElevation(panel.getCityElevationLabel() + vertexOrder.get(i).getMdpl());
+            CITY_PANEL_CONTAINER.add(panel);
         }
+
         CITY_PANEL_CONTAINER.revalidate();
         CITY_PANEL_CONTAINER.repaint();
         CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
