@@ -782,6 +782,9 @@ public class MainFrame extends javax.swing.JFrame {
         CITY_PANEL_CONTAINER.revalidate();
         CITY_PANEL_CONTAINER.repaint();
         CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        setCurrentOrigin((City) null);
+        setCurrentDestination((City) null);
     }//GEN-LAST:event_b_findActionPerformed
 
     /* Other methods */
