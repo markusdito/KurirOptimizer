@@ -812,8 +812,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_b_resetActionPerformed
 
     /**
-     * Melakukan pencarian shortest path menggunakan metode dijkstra pada {@link Graph}. Kota yang dipassing adalah kota
-     * yang sudah dipilih.
+     * Melakukan pencarian shortest path menggunakan metode dijkstra pada {@link Graph}. Kota yang diberikan adalah kota
+     * yang sudah dipilih. Metode ini juga mengaplikasikan animasi pada saat mencari shortest path.
      * */
     private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
         if (this.currentOrigin == null || this.currentDestination == null) {
@@ -905,6 +905,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCurrentOrigin(cities.get(newOrigin));
     }
 
+    /**
+     * Mengubah kota asal yang dipilih pada map. Metode ini juga melakukan highlighting label kota yang terkait pada
+     * map dengan warna hijau terang.
+     * */
     public void setCurrentOrigin(City currentOrigin) {
         if (this.currentOrigin != null) {
             resetPointSelected(this.currentOrigin.getLabel());
@@ -922,6 +926,11 @@ public class MainFrame extends javax.swing.JFrame {
         setCurrentDestination(cities.get(newDestination));
     }
 
+
+    /**
+     * Mengubah kota tujuan yang dipilih pada map. Metode ini juga melakukan highlighting label kota yang terkait pada
+     * map dengan warna hijau terang.
+     * */
     public void setCurrentDestination(City currentDestination) {
         if (this.currentDestination != null) {
             resetPointSelected(this.currentDestination.getLabel());
@@ -957,12 +966,18 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Membersihakan panel informasi kota.
+     * */
     private void clearInfoPanel() {
         CITY_PANEL_CONTAINER.removeAll();
         CITY_PANEL_CONTAINER.repaint();
         CITY_PANEL_CONTAINER.revalidate();
     }
 
+    /**
+     * Membersihkan kota asal dan tujuan yang dipilih menjadi nilai awal (kosong).
+     * */
     private void clearOriginDest() {
         setCurrentOrigin((City) null);
         setCurrentDestination((City) null);
