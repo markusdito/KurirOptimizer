@@ -20,7 +20,10 @@ public class RoundedTextField extends JTextField{
     private int roundTopRight = 0;
     private int roundBottomLeft = 0;
     private int roundBottomRight = 0;
-    
+
+    /**
+     * Membuat Text FIeld dengan kelengkungan sisi kustom
+     */
     public RoundedTextField() {
         fillColor = new Color(236, 240, 241);
         lineColor = new Color(52, 152, 219);
@@ -29,6 +32,7 @@ public class RoundedTextField extends JTextField{
         setBorder(BorderFactory.createEmptyBorder(2, 10, 2, 10));
     }
 
+    //getter setter
     public Color getFillColor() {
         return fillColor;
     }
@@ -88,6 +92,10 @@ public class RoundedTextField extends JTextField{
         repaint();
     }
 
+    /**
+     *
+     * @param grphcs the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs.create();
@@ -108,6 +116,10 @@ public class RoundedTextField extends JTextField{
         super.paintComponent(grphcs);
     }
 
+    /**
+     *
+     * @return perhitungan area kiri atas
+     */
     private Shape createRoundTopLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -119,6 +131,10 @@ public class RoundedTextField extends JTextField{
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area kanan atas
+     */
     private Shape createRoundTopRight() {
         int width = getWidth();
         int height = getHeight();
@@ -130,6 +146,10 @@ public class RoundedTextField extends JTextField{
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area kiri bawah
+     */
     private Shape createRoundBottomLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -141,6 +161,10 @@ public class RoundedTextField extends JTextField{
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area kanan bawah
+     */
     private Shape createRoundBottomRight() {
         int width = getWidth();
         int height = getHeight();

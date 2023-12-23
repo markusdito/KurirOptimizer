@@ -19,10 +19,19 @@ import javax.swing.JPanel;
 
 public class RoundedPanel extends JPanel {
 
+    private int roundTopLeft = 0;
+    private int roundTopRight = 0;
+    private int roundBottomLeft = 0;
+    private int roundBottomRight = 0;
+
+    /**
+     * Membuat panel dengan kelengkungan sisi kuston
+     */
     public RoundedPanel() {
         setOpaque(false);
     }
-    
+
+    //setter getter
     public int getRoundTopLeft() {
         return roundTopLeft;
     }
@@ -59,12 +68,10 @@ public class RoundedPanel extends JPanel {
         repaint();
     }
 
-    private int roundTopLeft = 0;
-    private int roundTopRight = 0;
-    private int roundBottomLeft = 0;
-    private int roundBottomRight = 0;
-
-
+    /**
+     *
+     * @param grphcs the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs.create();
@@ -85,6 +92,10 @@ public class RoundedPanel extends JPanel {
         super.paintComponent(grphcs);
     }
 
+    /**
+     *
+     * @return perhitungan area kiri atas
+     */
     private Shape createRoundTopLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -96,6 +107,10 @@ public class RoundedPanel extends JPanel {
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area kanan atas
+     */
     private Shape createRoundTopRight() {
         int width = getWidth();
         int height = getHeight();
@@ -107,6 +122,10 @@ public class RoundedPanel extends JPanel {
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area kiri bawah
+     */
     private Shape createRoundBottomLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -118,6 +137,10 @@ public class RoundedPanel extends JPanel {
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area kanan bawah
+     */
     private Shape createRoundBottomRight() {
         int width = getWidth();
         int height = getHeight();
