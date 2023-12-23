@@ -2,7 +2,6 @@ import models.objects.City;
 import models.objects.Graph;
 import utils.CityInitializer;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
