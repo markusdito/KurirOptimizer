@@ -230,7 +230,6 @@ public class Graph {
 		int[] distance = new int[vertices.length];
 		int[] previous = new int[vertices.length];
 		boolean[] visited = new boolean[vertices.length];
-		int actualCost = 0;
 
 		Arrays.fill(distance, Integer.MAX_VALUE);
 		distance[src] = 0;
@@ -256,7 +255,7 @@ public class Graph {
 			}
 		}
 
-		/* Kembalikan urutan kota */
+		/* Kembalikan list kota secara terurut */
 		return getVertexOrder(previous, dst, new ArrayList<>());
 	}
 
