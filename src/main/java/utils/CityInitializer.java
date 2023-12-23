@@ -6,6 +6,12 @@ import models.objects.Graph;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Kelas ini menyimpan metode inisialisasi graf dengan vertex yang sudah ada pada {@link #cities}.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
+
 public class CityInitializer {
 	public static Map<String, City> cities = initCities();
 
@@ -53,12 +59,20 @@ public class CityInitializer {
 		cities.put("WONOGIRI", new City("WONOGIRI", 28, 100));
     }
 
+	/**
+	 * Menginisialisasi graf dengan vertex yang sudah ada pada {@link #cities}.
+	 * */
     public static void initGraph(Graph graph, Map<String, City> cities) {
         for (City city : cities.values()) {
             graph.addVertex(city);
         }
     }
 
+	/**
+	 * Menginisialisasi edge pada graf.
+	 *
+	 * @param graph graf yang akan diinisialisasi.
+	 */
 	public static void initEdges(Graph graph) {
 		graph.addEdge("BREBES", "TEGAL", 25);
 		graph.addEdge("BREBES", "CILACAP", 51);
