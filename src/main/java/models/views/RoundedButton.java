@@ -29,8 +29,11 @@ public class RoundedButton extends JButton {
     private int roundTopRight = 0;
     private int roundBottomLeft = 0;
     private int roundBottomRight = 0;
-    
 
+
+    /**
+     * Membuat tombol dengan kelengkungan sisi kuston
+     */
     public RoundedButton() {
         fillOriginal = new Color(52, 152, 219);
         fillOver = new Color(41, 128, 185);
@@ -46,8 +49,13 @@ public class RoundedButton extends JButton {
         setContentAreaFilled(false);
         setBackground(fillOriginal);
         setForeground(Color.white);
-        //tambahkan mouse event
+
+        /**
+         * Menambahkan mouse event
+         */
         addMouseListener(new MouseAdapter() {
+
+            //mouse keluar tombol
             @Override
             public void mouseExited(MouseEvent e) {
                 fill = fillOriginal;
@@ -55,6 +63,7 @@ public class RoundedButton extends JButton {
                 over = false;
             }
 
+            //mouse masuk tombol
             @Override
             public void mouseEntered(MouseEvent e) {
                 fill = fillOver;
@@ -63,6 +72,7 @@ public class RoundedButton extends JButton {
                 setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
 
+            //klik mouse dilepaskan
             @Override
             public void mouseReleased(MouseEvent e) {
                 if (over) {
@@ -74,6 +84,7 @@ public class RoundedButton extends JButton {
                 }
             }
 
+            //mouse diklik
             @Override
             public void mousePressed(MouseEvent e) {
                 fill = fillClick;
@@ -82,6 +93,7 @@ public class RoundedButton extends JButton {
         });
     }
 
+    // Setter getter
     public Color getFillOriginal() {
         return fillOriginal;
     }
@@ -166,6 +178,10 @@ public class RoundedButton extends JButton {
         repaint();
     }
 
+    /**
+     *
+     * @param grphcs the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs.create();
@@ -186,6 +202,10 @@ public class RoundedButton extends JButton {
         super.paintComponent(grphcs);
     }
 
+    /**
+     *
+     * @return perhitungan area sisi kiri atas
+     */
     private Shape createRoundTopLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -197,6 +217,10 @@ public class RoundedButton extends JButton {
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area sisi kanan atas
+     */
     private Shape createRoundTopRight() {
         int width = getWidth();
         int height = getHeight();
@@ -208,6 +232,10 @@ public class RoundedButton extends JButton {
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area sisi kiri bawah
+     */
     private Shape createRoundBottomLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -219,6 +247,10 @@ public class RoundedButton extends JButton {
         return area;
     }
 
+    /**
+     *
+     * @return perhitungan area sisi kanan bawah
+     */
     private Shape createRoundBottomRight() {
         int width = getWidth();
         int height = getHeight();
