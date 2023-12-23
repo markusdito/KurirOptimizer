@@ -5,7 +5,9 @@ import utils.CityInitializer;
 import java.util.HashMap;
 
 /**
- * Class untuk ngetes graph
+ * Kelas untuk mengetes fitur.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
  * */
 
 public class TesterClass {
