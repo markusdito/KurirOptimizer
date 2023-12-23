@@ -22,9 +22,7 @@ src
 
 ## Preview
 
-<!-- ![Preview](path/to/image) -->
-<!-- ![Preview](path/to/image) -->
-<!-- ![Preview](path/to/image) -->
+![Result](images/find_result.png)
 
 ## Contributors
 
