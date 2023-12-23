@@ -2,17 +2,21 @@ package models.objects;
 
 import java.util.*;
 
+/**
+ * Kelas ini menyimpan implementasi graf dengan menggunakan adjacency matrix.
+ *
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
+
 public class Graph {
 
 	private City[] vertices;
 	private int[][] adjMatrix;
-	private int backIdx;
 	private HashMap<String, Integer> vertexPosition;
 
 	public Graph(int nVertices) {
 		this.vertices = new City[nVertices];
 		this.adjMatrix = new int[nVertices][nVertices];
-		this.backIdx = 0;
 		vertexPosition = new HashMap<>();
 	}
 
@@ -24,7 +28,6 @@ public class Graph {
 	public void addVertex(City vertex) {
 		vertices[vertex.id] = vertex;
 		vertexPosition.put(vertex.label.toUpperCase(), vertex.id);
-		backIdx++;
 	}
 
 	/**
@@ -248,17 +251,13 @@ public class Graph {
 				if ((!visited[v] && adjMatrix[u][v] != 0)
 					&& (distance[u] != Integer.MAX_VALUE && distance[u] + adjMatrix[u][v] < distance[v])) {
 					distance[v] = distance[u] + adjustedDistance;
-					actualCost = distance[u] + adjMatrix[u][v];
 					previous[v] = u;
 				}
 			}
 		}
 
-		/* Cetak harga dan urutan */
-		System.out.println("Shortest distance from "
-			+ vertices[src].label + " to " + vertices[dst].label + " costs " + actualCost);
-		List<City> orderedVertex = getVertexOrder(previous, dst, new ArrayList<>());
-		return orderedVertex;
+		/* Kembalikan urutan kota */
+		return getVertexOrder(previous, dst, new ArrayList<>());
 	}
 
 	/**
@@ -286,6 +285,29 @@ public class Graph {
 			distances[i] = adjMatrix[vertexOrder.get(i).getId()][vertexOrder.get(i + 1).getId()];
 		}
 		return distances;
+	}
+
+	/**
+	 * Mendapatkan jarak total dari sebuah list city terurut.
+	 * */
+	public int getTotalDistance(List<City> vertexOrder) {
+		int[] distances = getVertexDistances(vertexOrder);
+		int totalDistance = 0;
+		for (int distance : distances) {
+			totalDistance += distance;
+		}
+		return totalDistance;
+	}
+
+	/**
+	 * Mendapatkan jarak total dari sebuah variable arguments int jarak.
+	 * */
+	public int getTotalDistance(int... distances) {
+		int totalDistance = 0;
+		for (int distance : distances) {
+			totalDistance += distance;
+		}
+		return totalDistance;
 	}
 
 	/**

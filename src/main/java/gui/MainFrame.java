@@ -7,6 +7,8 @@ import utils.CityInitializer;
 import utils.ComponentUtils;
 import utils.UColors;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,17 +16,21 @@ import java.util.List;
  * @author narwa
  */
 public class MainFrame extends javax.swing.JFrame {
-
     private final Graph graph;
     private final HashMap<String, City> cities;
     private City currentOrigin;
     private City currentDestination;
+    private final JLabel[] mapLabels;
 
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        // Stores the map labels in an array for easier access
+        mapLabels = new JLabel[]{
+			l_brebes, l_tegal, l_pemalang, l_pekalongan, l_batang, l_kendal, l_semarang, l_kudus, l_demak, l_jepara, l_pati, l_grobogan, l_rembang, l_blora, l_banjarnegara, l_temanggung, l_wonosobo, l_purbalingga, l_cilacap, l_banyumas, l_boyolali, l_kebumen, l_purworejo, l_magelang, l_klaten, l_sragen, l_karanganyar, l_sukoharjo, l_wonogiri
+		};
 
         // Mengatur warna UI
         setColors();
@@ -64,6 +70,10 @@ public class MainFrame extends javax.swing.JFrame {
         b_selectDestination = new javax.swing.JButton();
         b_reset = new javax.swing.JButton();
         b_find = new javax.swing.JButton();
+        RESULT_PANEL = new javax.swing.JPanel();
+        l_jarakTotal = new javax.swing.JLabel();
+        f_jarakTotal = new javax.swing.JTextField();
+        l_km = new javax.swing.JLabel();
         MAP_PANEL = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         PETA_UTAMA = new javax.swing.JLabel();
@@ -148,19 +158,57 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        RESULT_PANEL.setBackground(UColors.IVORY.toColor());
+        RESULT_PANEL.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasil Pencarian", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
+
+        l_jarakTotal.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        l_jarakTotal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_jarakTotal.setText("Jarak Total");
+
+        f_jarakTotal.setEditable(Boolean.FALSE);
+        f_jarakTotal.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        f_jarakTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        f_jarakTotal.setText("-");
+
+        l_km.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        l_km.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        l_km.setText("KM");
+
+        javax.swing.GroupLayout RESULT_PANELLayout = new javax.swing.GroupLayout(RESULT_PANEL);
+        RESULT_PANEL.setLayout(RESULT_PANELLayout);
+        RESULT_PANELLayout.setHorizontalGroup(
+            RESULT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RESULT_PANELLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(l_jarakTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(f_jarakTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(l_km)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        RESULT_PANELLayout.setVerticalGroup(
+            RESULT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RESULT_PANELLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(l_jarakTotal)
+                .addComponent(f_jarakTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(l_km))
+        );
+
         javax.swing.GroupLayout INPUT_PANELayout = new javax.swing.GroupLayout(INPUT_PANE);
         INPUT_PANE.setLayout(INPUT_PANELayout);
         INPUT_PANELayout.setHorizontalGroup(
             INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(INPUT_PANELayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_PANELayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(INPUT_PANELayout.createSequentialGroup()
+                .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(RESULT_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, INPUT_PANELayout.createSequentialGroup()
                         .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addComponent(b_find, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(l_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_PANELayout.createSequentialGroup()
+                    .addComponent(l_title, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(INPUT_PANELayout.createSequentialGroup()
                         .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(f_destination, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(l_origin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -190,6 +238,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(f_destination, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_selectDestination))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RESULT_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(INPUT_PANELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_find, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -736,11 +786,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(MAP_PANEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(INPUT_PANE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CITYINFO_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(CITYINFO_SCROLLPANE, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1382, 804));
+        setSize(new java.awt.Dimension(1382, 799));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -755,32 +804,71 @@ public class MainFrame extends javax.swing.JFrame {
     private void b_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetActionPerformed
         clearOriginDest();
         clearInfoPanel();
+
+        // resets the map labels colors
+        for (JLabel l : mapLabels) {
+            l.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_b_resetActionPerformed
 
+    /**
+     * Melakukan pencarian shortest path menggunakan metode dijkstra pada {@link Graph}. Kota yang diberikan adalah kota
+     * yang sudah dipilih. Metode ini juga mengaplikasikan animasi pada saat mencari shortest path.
+     * */
     private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
+        if (this.currentOrigin == null || this.currentDestination == null) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Harap pilih kota asal dan tujuan terlebih dahulu!",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
         clearInfoPanel();
         List<City> vertexOrder = graph.dijkstra(getCurrentOrigin().getLabel(), getCurrentDestination().getLabel());
         int[] vertexDist = graph.getVertexDistances(vertexOrder);
-
-        for(int i = 0; i < vertexOrder.size(); i++) {
-            CityInfoPanel panel = new CityInfoPanel();
-            panel.setCityName(vertexOrder.get(i).getLabel());
-
-            if (i != 0) {
-                panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[i - 1]);
-            } else {
-                panel.setCityDistance("Awal");
-            }
-
-            panel.setCityElevation(panel.getCityElevationLabel() + vertexOrder.get(i).getMdpl());
-            CITY_PANEL_CONTAINER.add(panel);
-        }
-
-        CITY_PANEL_CONTAINER.revalidate();
-        CITY_PANEL_CONTAINER.repaint();
-        CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        int totalDistance = graph.getTotalDistance(vertexDist);
 
         clearOriginDest();
+
+        new SwingWorker<Void, City>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                for (City city : vertexOrder) {
+                    publish(city);
+                    Thread.sleep(500);
+                }
+                return null;
+            }
+
+            @Override
+            protected void process(List<City> cities) {
+                for (City city : cities) {
+                    pointSelected(city.getLabel());
+                    CityInfoPanel panel = new CityInfoPanel();
+                    panel.setCityName(city.getLabel());
+
+                    if (vertexOrder.indexOf(city) != 0) {
+                        panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[vertexOrder.indexOf(city) - 1]);
+                    } else {
+                        panel.setCityDistance("Awal");
+                    }
+
+                    panel.setCityElevation(panel.getCityElevationLabel() + city.getMdpl());
+                    CITY_PANEL_CONTAINER.add(panel);
+                    CITY_PANEL_CONTAINER.revalidate();
+                    CITY_PANEL_CONTAINER.repaint();
+                    CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+                }
+            }
+
+            @Override
+            protected void done() {
+                f_jarakTotal.setText(String.valueOf(totalDistance));
+            }
+        }.execute();
     }//GEN-LAST:event_b_findActionPerformed
 
     /* Other methods */
@@ -795,7 +883,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Mengecek apaible kota yang dimasukkan merupakan kota yang sama dengan {@link #currentDestination}.
+     * Mengecek apabila kota yang dimasukkan merupakan kota yang sama dengan {@link #currentDestination}.
      */
     public boolean isCurrentDestination(String city) {
         if (currentDestination == null)
@@ -814,69 +902,92 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     public void setCurrentOrigin(String newOrigin) {
-        this.currentOrigin = cities.get(newOrigin);
-        f_origin.setText(currentOrigin.getLabel());
+        setCurrentOrigin(cities.get(newOrigin));
     }
 
+    /**
+     * Mengubah kota asal yang dipilih pada map. Metode ini juga melakukan highlighting label kota yang terkait pada
+     * map dengan warna hijau terang.
+     * */
     public void setCurrentOrigin(City currentOrigin) {
+        if (this.currentOrigin != null) {
+            resetPointSelected(this.currentOrigin.getLabel());
+        }
         this.currentOrigin = currentOrigin;
-        if (currentOrigin == null)
+        if (currentOrigin == null) {
             f_origin.setText("");
-        else
+        } else {
             f_origin.setText(currentOrigin.getLabel());
+            pointSelected(currentOrigin.getLabel());
+        }
     }
 
     public void setCurrentDestination(String newDestination) {
-        this.currentDestination = cities.get(newDestination);
-        f_destination.setText(currentDestination.getLabel());
+        setCurrentDestination(cities.get(newDestination));
     }
 
+
+    /**
+     * Mengubah kota tujuan yang dipilih pada map. Metode ini juga melakukan highlighting label kota yang terkait pada
+     * map dengan warna hijau terang.
+     * */
     public void setCurrentDestination(City currentDestination) {
+        if (this.currentDestination != null) {
+            resetPointSelected(this.currentDestination.getLabel());
+        }
         this.currentDestination = currentDestination;
-        if (currentDestination == null)
+        if (currentDestination == null) {
             f_destination.setText("");
-        else
+        } else {
             f_destination.setText(currentDestination.getLabel());
+            pointSelected(currentDestination.getLabel());
+        }
     }
 
+    /**
+     * Mengubah warna label kota yang dipilih pada map menjadi hijau.
+     * */
+    public void pointSelected(String label) {
+        for (JLabel l : mapLabels) {
+            if (l.getText().equalsIgnoreCase(label)) {
+                l.setBackground(UColors.BRIGHT_GREEN.toColor());
+            }
+        }
+    }
+
+    /**
+     * Mengubah warna label semua kota pada map menjadi putih,
+     * */
+    public void resetPointSelected(String label) {
+        for (JLabel l : mapLabels) {
+            if (l.getText().equalsIgnoreCase(label)) {
+                l.setBackground(Color.WHITE);
+            }
+        }
+    }
+
+    /**
+     * Membersihakan panel informasi kota.
+     * */
     private void clearInfoPanel() {
         CITY_PANEL_CONTAINER.removeAll();
         CITY_PANEL_CONTAINER.repaint();
         CITY_PANEL_CONTAINER.revalidate();
     }
 
+    /**
+     * Membersihkan kota asal dan tujuan yang dipilih menjadi nilai awal (kosong).
+     * */
     private void clearOriginDest() {
         setCurrentOrigin((City) null);
         setCurrentDestination((City) null);
+        f_jarakTotal.setText("-");
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -891,11 +1002,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel INPUT_PANE;
     private javax.swing.JPanel MAP_PANEL;
     private javax.swing.JLabel PETA_UTAMA;
+    private javax.swing.JPanel RESULT_PANEL;
     private javax.swing.JButton b_find;
     private javax.swing.JButton b_reset;
     private javax.swing.JButton b_selectDestination;
     private javax.swing.JButton b_selectOrigin;
     private javax.swing.JTextField f_destination;
+    private javax.swing.JTextField f_jarakTotal;
     private javax.swing.JTextField f_origin;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLabel l_banjarnegara;
@@ -908,11 +1021,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel l_demak;
     private javax.swing.JLabel l_destination;
     private javax.swing.JLabel l_grobogan;
+    private javax.swing.JLabel l_jarakTotal;
     private javax.swing.JLabel l_jepara;
     private javax.swing.JLabel l_karanganyar;
     private javax.swing.JLabel l_kebumen;
     private javax.swing.JLabel l_kendal;
     private javax.swing.JLabel l_klaten;
+    private javax.swing.JLabel l_km;
     private javax.swing.JLabel l_kudus;
     private javax.swing.JLabel l_magelang;
     private javax.swing.JLabel l_origin;

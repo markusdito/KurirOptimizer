@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package gui;
 
-import models.objects.City;
 import utils.ComponentUtils;
 import utils.UColors;
 
 import javax.swing.*;
-import java.util.Map;
 
 /**
+ * Kelas GUI yang digunakan untuk menampilkan peta serta pilihan kota tujuan.
+ * Interaksi pada kelas ini akan mengisi kota tujuan pada frame utama.
  *
- * @author narwa
- */
+ * @author <a href="https://github.com/vianneynara">Nara</a>
+ * */
+
 public class SelectDestinationDialog extends javax.swing.JDialog {
     private MainFrame mainFrame;
 
@@ -690,6 +687,12 @@ public class SelectDestinationDialog extends javax.swing.JDialog {
         checkSet("PURWOREJO");
     }//GEN-LAST:event_b_purworejoActionPerformed
 
+    /**
+     * Melakukan pengecekan terhadap nama kota yang diberikan. Pengecekan dilakukan dengan cara membandingkan nama kota
+     * yang diberikan dengan nama kota asal dan tujuan pada {@link MainFrame}. Jika nama kota yang diberikan sama dengan
+     * nama kota asal atau tujuan, maka akan menampilkan dialog informasi. Jika tidak ada entri yang sama pada waktu
+     * tersebut, maka akan diset kota tujuannya dengan nama label yang diberikan.
+     * */
     private void checkSet(String cityName) {
         if (mainFrame.isCurrentOrigin(cityName)) {
             JOptionPane.showMessageDialog(
