@@ -811,50 +811,64 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b_resetActionPerformed
 
+    /**
+     * Melakukan pencarian shortest path menggunakan metode dijkstra pada {@link Graph}. Kota yang dipassing adalah kota
+     * yang sudah dipilih.
+     * */
     private void b_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_findActionPerformed
+        if (this.currentOrigin == null || this.currentDestination == null) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Harap pilih kota asal dan tujuan terlebih dahulu!",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
         clearInfoPanel();
-            List<City> vertexOrder = graph.dijkstra(getCurrentOrigin().getLabel(), getCurrentDestination().getLabel());
-            int[] vertexDist = graph.getVertexDistances(vertexOrder);
-            int totalDistance = graph.getTotalDistance(vertexDist);
+        List<City> vertexOrder = graph.dijkstra(getCurrentOrigin().getLabel(), getCurrentDestination().getLabel());
+        int[] vertexDist = graph.getVertexDistances(vertexOrder);
+        int totalDistance = graph.getTotalDistance(vertexDist);
 
-            clearOriginDest();
+        clearOriginDest();
 
-            new SwingWorker<Void, City>() {
-                @Override
-                protected Void doInBackground() throws Exception {
-                    for (City city : vertexOrder) {
-                        publish(city);
-                        Thread.sleep(500);
+        new SwingWorker<Void, City>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                for (City city : vertexOrder) {
+                    publish(city);
+                    Thread.sleep(500);
+                }
+                return null;
+            }
+
+            @Override
+            protected void process(List<City> cities) {
+                for (City city : cities) {
+                    pointSelected(city.getLabel());
+                    CityInfoPanel panel = new CityInfoPanel();
+                    panel.setCityName(city.getLabel());
+
+                    if (vertexOrder.indexOf(city) != 0) {
+                        panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[vertexOrder.indexOf(city) - 1]);
+                    } else {
+                        panel.setCityDistance("Awal");
                     }
-                    return null;
+
+                    panel.setCityElevation(panel.getCityElevationLabel() + city.getMdpl());
+                    CITY_PANEL_CONTAINER.add(panel);
+                    CITY_PANEL_CONTAINER.revalidate();
+                    CITY_PANEL_CONTAINER.repaint();
+                    CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
                 }
+            }
 
-                @Override
-                protected void process(List<City> cities) {
-                    for (City city : cities) {
-                        pointSelected(city.getLabel());
-                        CityInfoPanel panel = new CityInfoPanel();
-                        panel.setCityName(city.getLabel());
-
-                        if (vertexOrder.indexOf(city) != 0) {
-                            panel.setCityDistance(panel.getCityDistanceLabel() + vertexDist[vertexOrder.indexOf(city) - 1]);
-                        } else {
-                            panel.setCityDistance("Awal");
-                        }
-
-                        panel.setCityElevation(panel.getCityElevationLabel() + city.getMdpl());
-                        CITY_PANEL_CONTAINER.add(panel);
-                        CITY_PANEL_CONTAINER.revalidate();
-                        CITY_PANEL_CONTAINER.repaint();
-                        CITY_PANEL_CONTAINER.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-                    }
-                }
-
-                @Override
-                protected void done() {
-                    f_jarakTotal.setText(String.valueOf(totalDistance));
-                }
-            }.execute();
+            @Override
+            protected void done() {
+                f_jarakTotal.setText(String.valueOf(totalDistance));
+            }
+        }.execute();
     }//GEN-LAST:event_b_findActionPerformed
 
     /* Other methods */
